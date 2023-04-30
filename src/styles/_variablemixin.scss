@@ -1,0 +1,24 @@
+// variables
+
+// Fonts
+$header-font: "Pattaya", sans-serif;
+$main-font: "Poppins", sans-serif;
+
+// Font-size
+$header-size: clamp(4rem, 5vw, 6rem);
+$subheader-size: clamp(1.2rem, 2.5vw, 1.6rem);
+$text-size: clamp(0.8rem, 1.5vw, 1.2rem);
+$smallText-size: clamp(0.6rem, 1.5vw, 0.6rem);
+
+// Colors
+
+// $dark-color: ;
+// $light-color: ;
+$green: rgb(71, 236, 126);
+
+@mixin flexCenter($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}

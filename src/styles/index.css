@@ -4,6 +4,7 @@
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
+  font-size: 62.5%;
 }
 
 input {
@@ -16,4 +17,93 @@ textarea {
   outline: none;
   box-shadow: none;
   resize: none; /*remove the resize handle on the bottom right*/
+}
+
+.section-header {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  margin-bottom: -5rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  position: sticky;
+  border: 1px solid gray;
+  font-family: "Pattaya", sans-serif;
+  font-size: clamp(4rem, 5vw, 6rem);
+  background-color: rgb(255, 255, 255);
+}
+nav h1 {
+  color: rgb(71, 236, 126);
+  letter-spacing: 0.4rem;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 2000px;
+  border: 2px solid red;
+}
+#root > * {
+  padding: 3rem;
+}
+
+.weather-container {
+  border: 1px solid gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-family: "Poppins", sans-serif;
+}
+.weather-container > .weather-card-container {
+  width: 20rem;
+  height: 12rem;
+  border-radius: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+  background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)), linear-gradient(90deg, #4dfecc, #bd53ee, #fcb045);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  border: double 1px transparent;
+  padding: 0.1rem;
+  margin: 1rem;
+}
+.weather-container > .weather-card-container > .card-info {
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+.weather-container > .weather-card-container > .card-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+.weather-container > .weather-card-container > .temperature {
+  font-size: 4rem;
+  font-weight: 600;
+}
+.weather-container > .weather-card-container > .card-img {
+  height: 6rem;
+  width: 6rem;
+}
+
+.news-container {
+  border: 1px solid gray;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+img {
+  width: 50px;
+  height: 50px;
 }/*# sourceMappingURL=index.css.map */

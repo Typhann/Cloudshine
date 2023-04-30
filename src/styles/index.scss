@@ -1,2 +1,86 @@
 @import "./variablemixin";
 @import "./reset";
+
+.section-header {
+  font-family: $main-font;
+  font-size: $subheader-size;
+  // text-align: center;
+  margin-bottom: -5rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // padding: 3rem;
+  top: 0;
+  position: sticky;
+  border: 1px solid gray;
+  font-family: $header-font;
+  font-size: $header-size;
+  background-color: rgb(255, 255, 255);
+
+  h1 {
+    color: $green;
+    letter-spacing: 0.4rem;
+  }
+}
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 2000px;
+  border: 2px solid red;
+  > * {
+    padding: 3rem;
+  }
+}
+
+.weather-container {
+  border: 1px solid gray;
+  @include flexCenter(row);
+  flex-wrap: wrap;
+  font-family: $main-font;
+  > .weather-card-container {
+    width: 20rem;
+    height: 12rem;
+    border-radius: 3rem;
+    @include flexCenter(column);
+    background-color: rgb(255, 255, 255);
+    background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)),
+      linear-gradient(90deg, #4dfecc, #bd53ee, #fcb045);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    border: double 1px transparent;
+    padding: 0.1rem;
+    margin: 1rem;
+    > .card-info {
+      font-size: 1.4rem;
+      font-weight: 400;
+    }
+    > .card-row {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+    }
+    > .temperature {
+      font-size: 4rem;
+      font-weight: 600;
+    }
+    > .card-img {
+      height: 6rem;
+      width: 6rem;
+    }
+  }
+}
+
+.news-container {
+  border: 1px solid gray;
+}
+h2 {
+  font-size: 3rem;
+}
+img {
+  width: 50px;
+  height: 50px;
+}
