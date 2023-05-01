@@ -74,8 +74,8 @@ export default function Weather(props: Darkmode) {
     } else {
       const options: Intl.DateTimeFormatOptions = {
         weekday: "long",
-        // day: "numeric",
         // month: "numeric",
+        // day: "numeric",
         // hour: "numeric",
         // minute: "numeric",
         timeZone: "Europe/Paris",

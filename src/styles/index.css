@@ -19,13 +19,23 @@ textarea {
   resize: none; /*remove the resize handle on the bottom right*/
 }
 
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 2000px;
+  border: 2px solid red;
+}
+#root > * {
+  padding: 3rem;
+}
+
 .section-header {
   font-family: "Poppins", sans-serif;
   font-size: clamp(1.2rem, 2.5vw, 1.6rem);
   margin-bottom: -5rem;
 }
 
-nav {
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -36,19 +46,9 @@ nav {
   font-size: clamp(4rem, 5vw, 6rem);
   background-color: rgb(255, 255, 255);
 }
-nav h1 {
+header h1 {
   color: rgb(71, 236, 126);
   letter-spacing: 0.4rem;
-}
-
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  height: 2000px;
-  border: 2px solid red;
-}
-#root > * {
-  padding: 3rem;
 }
 
 .weather-container {
@@ -96,7 +96,23 @@ nav h1 {
 }
 
 .news-container {
-  border: 1px solid gray;
+  border: 1px solid green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.news-container > nav {
+  border: 2px solid orange;
+  width: 100%;
+}
+.news-container > nav > a {
+  background-color: rgb(53, 53, 53);
+  color: black;
+  border-radius: 25px;
+  padding: 1rem;
+  margin: 1rem 1rem 1rem 0rem;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
 }
 
 h2 {

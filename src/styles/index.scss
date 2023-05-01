@@ -1,6 +1,15 @@
 @import "./variablemixin";
 @import "./reset";
 
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 2000px;
+  border: 2px solid red;
+  > * {
+    padding: 3rem;
+  }
+}
 .section-header {
   font-family: $main-font;
   font-size: $subheader-size;
@@ -8,7 +17,7 @@
   margin-bottom: -5rem;
 }
 
-nav {
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,15 +32,6 @@ nav {
   h1 {
     color: $green;
     letter-spacing: 0.4rem;
-  }
-}
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  height: 2000px;
-  border: 2px solid red;
-  > * {
-    padding: 3rem;
   }
 }
 
@@ -75,7 +75,20 @@ nav {
 }
 
 .news-container {
-  border: 1px solid gray;
+  border: 1px solid green;
+  @include flexCenter(column);
+  > nav {
+    border: 2px solid orange;
+    width: 100%;
+    > a {
+      background-color: rgb(53, 53, 53);
+      color: black;
+      border-radius: 25px;
+      padding: 1rem;
+      margin: 1rem 1rem 1rem 0rem;
+      font-size: $subheader-size;
+    }
+  }
 }
 h2 {
   font-size: 3rem;
