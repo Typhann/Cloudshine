@@ -12,9 +12,9 @@ $smallText-size: clamp(0.6rem, 1.5vw, 0.6rem);
 
 // Colors
 
-// $dark-color: ;
+$dark-color: rgb(45, 45, 45);
 // $light-color: ;
-$green: rgb(71, 236, 126);
+$green: #47ec7e;
 
 @mixin flexCenter($direction) {
   display: flex;

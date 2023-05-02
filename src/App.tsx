@@ -7,16 +7,15 @@ import {
   Route,
 } from "react-router-dom";
 import "./styles/index.css";
-import Navbar from "./components/Header";
-import { Nav } from "react-bootstrap";
-import Weather from "./Weather";
-import News from "./News";
 import Layout from "./layouts/Layout";
 import Home from "./pages/news/Home";
 import Sports from "./pages/news/Sports";
 import Finance from "./pages/news/Finance";
 import Tech from "./pages/news/Tech";
 import Science from "./pages/news/Science";
+// TODO
+
+// fix so darkMode URL parameter stays when click on NavLink
 
 const router = createBrowserRouter(
   createRoutesFromElements(

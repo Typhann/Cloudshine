@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import WeatherCard from "./components/WeatherCard";
-import { Darkmode, WeatherCardData } from "./interface/interface";
+import { WeatherCardData } from "./interface/interface";
+import { useDarkMode } from "./utils";
 
-export default function Weather(props: Darkmode) {
+export default function Weather() {
   const [weatherData, setWeatherData] = useState<WeatherCardData[] | null>();
   const latitude = 41.390205;
   const longitude = 2.154007;
@@ -91,14 +92,13 @@ export default function Weather(props: Darkmode) {
   console.log(weatherData);
 
   return (
-    <>
+    <div className={useDarkMode("weather-section")}>
       <h2 className="section-header">5 day forecast for {city}</h2>
       <section className="weather-container">
         {weatherData &&
           weatherData.map((item) => (
             <WeatherCard
               key={item.id}
-              darkMode={props.darkMode}
               date={item.date}
               temperature={`${Math.round(item.temp)}°`}
               img={item.img}
@@ -106,6 +106,6 @@ export default function Weather(props: Darkmode) {
             />
           ))}
       </section>
-    </>
+    </div>
   );
 }

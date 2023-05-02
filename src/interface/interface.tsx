@@ -1,6 +1,6 @@
-export interface Darkmode {
-  darkMode: boolean;
-}
+// export interface Darkmode {
+//   darkMode: boolean;
+// }
 
 export interface WeatherCardData {
   id: number;
