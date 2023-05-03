@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Header from "../components/Header";
 import Weather from "../Weather";
 import { useDarkMode } from "../utils";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useSearchParams } from "react-router-dom";
 
 export default function Layout() {
   const activeStyle = {
@@ -12,6 +12,12 @@ export default function Layout() {
     backgroundColor: "transparent",
   };
 
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  function getSearchParam() {
+    const sp = new URLSearchParams(searchParams);
+    return `?${sp.toString()}`;
+  }
   return (
     <>
       <Header />
@@ -20,7 +26,7 @@ export default function Layout() {
         <nav className="news-nav">
           <NavLink
             className={useDarkMode("navlink")}
-            to={"."}
+            to={`./${getSearchParam()}`}
             end
             style={({ isActive }) => (isActive ? activeStyle : inActive)}
           >
@@ -28,28 +34,28 @@ export default function Layout() {
           </NavLink>
           <NavLink
             className={useDarkMode("navlink")}
-            to={"sports"}
+            to={`sports/${getSearchParam()}`}
             style={({ isActive }) => (isActive ? activeStyle : inActive)}
           >
             Sports
           </NavLink>
           <NavLink
             className={useDarkMode("navlink")}
-            to={"finance"}
+            to={`finance/${getSearchParam()}`}
             style={({ isActive }) => (isActive ? activeStyle : inActive)}
           >
             Finance
           </NavLink>
           <NavLink
             className={useDarkMode("navlink")}
-            to={"tech"}
+            to={`tech/${getSearchParam()}`}
             style={({ isActive }) => (isActive ? activeStyle : inActive)}
           >
             Tech
           </NavLink>
           <NavLink
             className={useDarkMode("navlink")}
-            to={"science"}
+            to={`science/${getSearchParam()}`}
             style={({ isActive }) => (isActive ? activeStyle : inActive)}
           >
             Science
