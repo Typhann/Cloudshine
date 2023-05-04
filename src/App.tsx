@@ -8,12 +8,17 @@ import {
 } from "react-router-dom";
 import "./styles/index.css";
 import Layout from "./layouts/Layout";
-import Home from "./pages/news/Home";
+import Popular from "./pages/news/Popular";
 import Sports from "./pages/news/Sports";
-import Finance from "./pages/news/Finance";
+import Business from "./pages/news/Business";
 import Tech from "./pages/news/Tech";
 import Science from "./pages/news/Science";
 import { useSearchParams, useParams } from "react-router-dom";
+import { loader as popularLoader } from "./pages/news/Popular";
+import { loader as sportsLoader } from "./pages/news/Sports";
+import { loader as businessLoader } from "./pages/news/Business";
+import { loader as techLoader } from "./pages/news/Tech";
+import { loader as scienceLoader } from "./pages/news/Science";
 // TODO
 
 // fix so darkMode URL parameter stays when click on NavLink
@@ -25,11 +30,11 @@ import { useSearchParams, useParams } from "react-router-dom";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
-      <Route index element={<Home />} />
-      <Route path={`sports`} element={<Sports />} />
-      <Route path="finance" element={<Finance />} />
-      <Route path="tech" element={<Tech />} />
-      <Route path="science" element={<Science />} />
+      <Route index element={<Popular />} loader={popularLoader} />
+      <Route path={`sports`} element={<Sports />} loader={sportsLoader} />
+      <Route path="business" element={<Business />} loader={businessLoader} />
+      <Route path="tech" element={<Tech />} loader={techLoader} />
+      <Route path="science" element={<Science />} loader={scienceLoader} />
     </Route>
   )
 );

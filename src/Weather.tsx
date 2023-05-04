@@ -58,7 +58,7 @@ export default function Weather() {
       .catch((error) => console.log(error));
   }, []);
 
-  console.log(weatherData);
+  // console.log(weatherData);
   function kelvinToCelcius(num: number) {
     return num - 273.15;
   }
@@ -89,7 +89,7 @@ export default function Weather() {
     }
   }
 
-  console.log(weatherData);
+  // console.log(weatherData);
 
   return (
     <div className={useDarkMode("weather-section")}>

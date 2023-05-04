@@ -1,6 +1,6 @@
 import React from "react";
 import { useSearchParams } from "react-router-dom";
-import { useDarkMode, useGetSearchParams } from "../utils";
+import { useDarkMode } from "../utils";
 
 export default function Header() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -15,7 +15,8 @@ export default function Header() {
       document.body.style = "background: rgb(45, 45, 45);";
     }
   }
-  useGetSearchParams();
+  // useGetSearchParams();
+  // getNewsArticles("sports", "5");
   return (
     <header className={useDarkMode("header")}>
       <h1>Cloudshine</h1>

@@ -22,7 +22,7 @@ export default function Layout() {
     <>
       <Header />
       <Weather />
-      <section className={useDarkMode("news-container")}>
+      <section className={useDarkMode("news-wrapper")}>
         <nav className="news-nav">
           <NavLink
             className={useDarkMode("navlink")}
@@ -30,7 +30,7 @@ export default function Layout() {
             end
             style={({ isActive }) => (isActive ? activeStyle : inActive)}
           >
-            Home
+            Popular
           </NavLink>
           <NavLink
             className={useDarkMode("navlink")}
@@ -41,10 +41,10 @@ export default function Layout() {
           </NavLink>
           <NavLink
             className={useDarkMode("navlink")}
-            to={`finance/${getSearchParam()}`}
+            to={`business/${getSearchParam()}`}
             style={({ isActive }) => (isActive ? activeStyle : inActive)}
           >
-            Finance
+            Business
           </NavLink>
           <NavLink
             className={useDarkMode("navlink")}
@@ -61,7 +61,10 @@ export default function Layout() {
             Science
           </NavLink>
         </nav>
-        <Outlet />
+        <div className="news-container">
+          <Outlet />
+          <div className="trending-headlines"></div>
+        </div>
       </section>
     </>
   );

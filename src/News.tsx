@@ -1,6 +1,8 @@
 import React from "react";
 
-export default function Weather() {
+// only render img if it exist
+
+export default function News() {
   return (
     <div className="news-container">
       <h2>News</h2>
