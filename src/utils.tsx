@@ -43,6 +43,7 @@ type NewsArticleProps = {
   urlToImage: string;
   url: string;
 };
+
 export function renderArticles(articles: NewsArticleProps) {
   return (
     <div className="articles-container">
@@ -50,6 +51,7 @@ export function renderArticles(articles: NewsArticleProps) {
         articles.map((article: NewsArticleProps) => {
           return (
             <NewsArticle
+              key={article.id}
               id={article.id}
               title={article.title}
               author={article.author}

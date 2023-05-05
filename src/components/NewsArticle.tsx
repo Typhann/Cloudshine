@@ -31,9 +31,11 @@ export default function NewsArticle(props: NewsArticleProps) {
         </div>
         <p>
           {props.description} <br></br>
-          <a target="_blank" className="read-more" href={props.url}>
-            Read more <img src={windowIcon} width="20px" height="20px" />
-          </a>
+          <span>
+            <a target="_blank" className="read-more" href={props.url}>
+              Read more <img src={windowIcon} width="20px" height="20px" />
+            </a>
+          </span>
         </p>
       </article>
     </>

@@ -134,11 +134,12 @@ header {
       // background-color: red;
       // border: 2px solid green;
       display: flex;
-      // justify-content: center;
-      // align-items: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+
+      word-break: break-all;
       // margin-top: 1rem;
       width: 85%;
-      flex-wrap: wrap;
       > .news-card {
         box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
           rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
@@ -147,7 +148,7 @@ header {
         margin: 0rem 2rem 2rem 0rem;
         // padding: 1rem;
         > * {
-          padding: 0.5rem;
+          padding: 1rem;
         }
         > .space-between {
           display: flex;
@@ -165,7 +166,7 @@ header {
         }
         > p {
           font-size: $text-size;
-          > a {
+          span {
             font-size: $subheader-size;
             background: -webkit-linear-gradient(
               10deg,
@@ -175,7 +176,9 @@ header {
             );
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            // margin-bottom: 5rem;
           }
+          margin-bottom: 1rem;
         }
       }
     }
