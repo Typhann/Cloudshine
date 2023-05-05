@@ -15,7 +15,7 @@ export default function NewsArticle(props: NewsArticleProps) {
   const [searchParams, setSearchParams] = useSearchParams();
   const img = props.urlToImage
     ? props.urlToImage
-    : "../../public/icons/lightMode.png";
+    : "https://images.pexels.com/photos/1369476/pexels-photo-1369476.jpeg?auto=compress&cs=tinysrgb&w=1600";
   const windowIcon =
     searchParams.get("mode") === "dark"
       ? "../../public/icons/new-window-light.png"

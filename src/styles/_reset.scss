@@ -19,3 +19,8 @@ textarea {
   box-shadow: none;
   resize: none; /*remove the resize handle on the bottom right*/
 }
+
+a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}

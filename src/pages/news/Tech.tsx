@@ -1,10 +1,9 @@
-import React from "react";
-import { getNewsArticles, renderArticles } from "../../utils";
+import { useState } from "react";
+import { getNewsArticles, renderArticles, useLoadMore } from "../../utils";
 import { useLoaderData } from "react-router-dom";
-import NewsArticle from "../../components/NewsArticle";
 
 export function loader() {
-  return getNewsArticles("tech", "10");
+  return getNewsArticles("tech");
 }
 
 type NewsArticleProps = {
@@ -18,7 +17,10 @@ type NewsArticleProps = {
 };
 
 export default function Science() {
-  const articles: NewsArticleProps = useLoaderData();
+  const loaderData: NewsArticleProps = useLoaderData();
+  const [articles, setArticles] = useState(loaderData.slice(0, 10));
+
+  useLoadMore(articles, setArticles, loaderData);
 
   return <>{renderArticles(articles)}</>;
 }

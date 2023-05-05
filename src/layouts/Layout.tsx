@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
 import Weather from "../Weather";
+import NewsHeadlines from "../components/NewsHeadlines";
 import { useDarkMode } from "../utils";
 import { NavLink, Outlet, useSearchParams } from "react-router-dom";
 
@@ -63,7 +64,9 @@ export default function Layout() {
         </nav>
         <div className="news-container">
           <Outlet />
-          <div className="trending-headlines"></div>
+          <div className="trending-headlines">
+            <NewsHeadlines />
+          </div>
         </div>
       </section>
     </>

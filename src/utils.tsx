@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useSearchParams, useParams } from "react-router-dom";
 import NewsArticle from "./components/NewsArticle";
 
@@ -16,9 +17,9 @@ export function useGetSearchParams() {
   // console.log(param);
 }
 
-export async function getNewsArticles(category: string, pageSize: string) {
+export async function getNewsArticles(category: string) {
   const apiKey = "0ccb8a4744e14aa5bd0ac95652d3aac0";
-  const url = `https://newsapi.org/v2/everything?q=${category}&sortBy=publishedAt&pageSize=${pageSize}&language=en&apiKey=${apiKey}`;
+  const url = `https://newsapi.org/v2/everything?q=${category}&sortBy=publishedAt&pageSize=100&language=en&apiKey=${apiKey}`;
 
   const res = await fetch(url);
 
@@ -30,7 +31,24 @@ export async function getNewsArticles(category: string, pageSize: string) {
     };
   }
   const data: { articles: [] } = await res.json();
-  console.log("returned from getNews", data.articles);
+  // console.log("returned from getNews", data.articles);
+  return data.articles;
+}
+
+export async function getNewsHeadlines() {
+  const apiKey = "0ccb8a4744e14aa5bd0ac95652d3aac0";
+  const url = `https://newsapi.org/v2/everything?q=popular&sortBy=publishedAt&pageSize=6&apiKey=${apiKey}`;
+
+  const res = await fetch(url);
+
+  if (!res.ok) {
+    throw {
+      message: "Failed to fetch news headlines",
+      statusText: res.statusText,
+      status: res.status,
+    };
+  }
+  const data: { articles: [] } = await res.json();
   return data.articles;
 }
 
@@ -64,4 +82,35 @@ export function renderArticles(articles: NewsArticleProps) {
         })}
     </div>
   );
+}
+
+export function useLoadMore(articles, setArticles, loaderData) {
+  useEffect(() => {
+    function handleScroll() {
+      const scrollTop =
+        document.documentElement.scrollTop || document.body.scrollTop;
+      const scrollHeight =
+        document.documentElement.scrollHeight || document.body.scrollHeight;
+      const clientHeight =
+        document.documentElement.clientHeight || window.innerHeight;
+      const reachedBottom = scrollTop + clientHeight >= scrollHeight;
+      if (reachedBottom) {
+        loadArticles();
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [articles]);
+
+  function loadArticles() {
+    const startIndex = articles.length;
+    const endIndex = startIndex + 10;
+    const newArticles = [
+      ...articles,
+      ...loaderData.slice(startIndex, endIndex),
+    ];
+    setArticles(newArticles);
+  }
 }
