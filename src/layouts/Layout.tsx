@@ -19,12 +19,23 @@ export default function Layout() {
     const sp = new URLSearchParams(searchParams);
     return `?${sp.toString()}`;
   }
+
+  const [scrolled, setScrolled] = useState("");
+  window.addEventListener("scroll", function () {
+    if (window.scrollY >= 200) {
+      setScrolled("scrolled");
+    }
+    if (window.scrollY <= 200) {
+      setScrolled("");
+    }
+  });
+  // console.log(scrolled);
   return (
     <>
       <Header />
       <Weather />
       <section className={useDarkMode("news-wrapper")}>
-        <nav className="news-nav">
+        <nav className={`news-nav ${scrolled}`}>
           <NavLink
             className={useDarkMode("navlink")}
             to={`./${getSearchParam()}`}

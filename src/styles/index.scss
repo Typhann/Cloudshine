@@ -40,6 +40,9 @@ header {
     color: $green;
     letter-spacing: 0.4rem;
   }
+  > img {
+    cursor: pointer;
+  }
 }
 
 .weather-section {
@@ -98,6 +101,12 @@ header {
 .news-wrapper {
   // border: 1px solid green;
   @include flexCenter(column);
+  > .scrolled {
+    position: fixed;
+    top: 0;
+    margin-left: 70%;
+    margin-top: 25px;
+  }
   > nav {
     // border: 2px solid orange;
     width: 100%;

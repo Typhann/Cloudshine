@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useDarkMode, getNewsHeadlines } from "../utils";
 import { useSearchParams } from "react-router-dom";
 import { render } from "react-dom";
+import { nanoid } from "nanoid";
 
 export default function NewsHeadline() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -15,7 +16,7 @@ export default function NewsHeadline() {
       .then((res) => res.json())
       .then((data) => {
         setHeadlines(data.articles);
-        console.log(data);
+        // console.log(data);
       });
   }, []);
 
@@ -28,7 +29,7 @@ export default function NewsHeadline() {
     headlines &&
     headlines.map((headline: string) => {
       return (
-        <a href={headline.url} target="_blank">
+        <a key={nanoid()} href={headline.url} target="_blank">
           <div className="headline">
             <h2>{headline.title}</h2>
             <img src={windowIcon} width="12.5px" height="12.5px" />

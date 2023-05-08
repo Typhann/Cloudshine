@@ -1,10 +1,12 @@
 import React from "react";
 import { useSearchParams } from "react-router-dom";
 import { useDarkMode } from "../utils";
+import darkModeImg from "../../public/icons/darkMode.png";
+import lightModeImg from "../../public/icons/lightMode.png";
 
 export default function Header() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const img = searchParams.get("mode") === "dark" ? "lightMode" : "darkMode";
+  const img = searchParams.get("mode") === "dark" ? lightModeImg : darkModeImg;
 
   function toggleDarkMode() {
     if (searchParams.get("mode") === "dark") {
@@ -20,12 +22,7 @@ export default function Header() {
   return (
     <header className={useDarkMode("header")}>
       <h1>Cloudshine</h1>
-      <img
-        onClick={toggleDarkMode}
-        src={`./public/icons/${img}.png`}
-        width="40px"
-        height="40px"
-      />
+      <img onClick={toggleDarkMode} src={img} width="40px" height="40px" />
     </header>
   );
 }

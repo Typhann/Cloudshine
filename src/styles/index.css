@@ -60,6 +60,9 @@ header h1 {
   color: #47ec7e;
   letter-spacing: 0.4rem;
 }
+header > img {
+  cursor: pointer;
+}
 
 .weather-section > h2 {
   margin-bottom: 0.5rem;
@@ -119,6 +122,12 @@ header h1 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+.news-wrapper > .scrolled {
+  position: fixed;
+  top: 0;
+  margin-left: 70%;
+  margin-top: 25px;
 }
 .news-wrapper > nav {
   width: 100%;

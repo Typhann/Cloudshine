@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useSearchParams, useParams } from "react-router-dom";
 import NewsArticle from "./components/NewsArticle";
+import { nanoid } from "nanoid";
 
 export function useDarkMode(className: string) {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -69,7 +70,7 @@ export function renderArticles(articles: NewsArticleProps) {
         articles.map((article: NewsArticleProps) => {
           return (
             <NewsArticle
-              key={article.id}
+              key={nanoid()}
               id={article.id}
               title={article.title}
               author={article.author}
