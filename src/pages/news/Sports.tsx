@@ -1,5 +1,10 @@
 import { useState } from "react";
-import { getNewsArticles, renderArticles, useLoadMore } from "../../utils";
+import {
+  getNewsArticles,
+  renderArticles,
+  useLoadMore,
+  scrollToTop,
+} from "../../utils";
 import { useLoaderData } from "react-router-dom";
 
 export function loader() {
@@ -19,7 +24,7 @@ type NewsArticleProps = {
 export default function Sports() {
   const loaderData: NewsArticleProps = useLoaderData();
   const [articles, setArticles] = useState(loaderData.slice(0, 10));
-
+  scrollToTop();
   useLoadMore(articles, setArticles, loaderData);
   return <>{renderArticles(articles)}</>;
 }

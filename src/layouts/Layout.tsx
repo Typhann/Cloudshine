@@ -22,10 +22,10 @@ export default function Layout() {
 
   const [scrolled, setScrolled] = useState("");
   window.addEventListener("scroll", function () {
-    if (window.scrollY >= 200) {
+    if (window.scrollY >= 150) {
       setScrolled("scrolled");
     }
-    if (window.scrollY <= 200) {
+    if (window.scrollY <= 150) {
       setScrolled("");
     }
   });

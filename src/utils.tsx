@@ -38,7 +38,7 @@ export async function getNewsArticles(category: string) {
 
 export async function getNewsHeadlines() {
   const apiKey = "0ccb8a4744e14aa5bd0ac95652d3aac0";
-  const url = `https://newsapi.org/v2/everything?q=popular&sortBy=publishedAt&pageSize=6&apiKey=${apiKey}`;
+  const url = `https://newsapi.org/v2/everything?q=popular&pageSize=10&apiKey=${apiKey}`;
 
   const res = await fetch(url);
 
@@ -103,7 +103,7 @@ export function useLoadMore(articles, setArticles, loaderData) {
     window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [articles]);
+  }, [articles, loadArticles]);
 
   function loadArticles() {
     const startIndex = articles.length;
@@ -114,4 +114,8 @@ export function useLoadMore(articles, setArticles, loaderData) {
     ];
     setArticles(newArticles);
   }
+}
+
+export function scrollToTop() {
+  window.scrollTo(0, 0);
 }
