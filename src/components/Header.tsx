@@ -22,7 +22,7 @@ export default function Header() {
   return (
     <header className={useDarkMode("header")}>
       <h1>Cloudshine</h1>
-      <img onClick={toggleDarkMode} src={img} width="40px" height="40px" />
+      <img onClick={toggleDarkMode} src={img} width="20px" height="20px" />
     </header>
   );
 }
