@@ -19,6 +19,7 @@ import { loader as sportsLoader } from "./pages/news/Sports";
 import { loader as businessLoader } from "./pages/news/Business";
 import { loader as techLoader } from "./pages/news/Tech";
 import { loader as scienceLoader } from "./pages/news/Science";
+
 // TODO
 
 // fix so darkMode URL parameter stays when click on NavLink

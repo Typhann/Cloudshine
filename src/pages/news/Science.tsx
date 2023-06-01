@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   getNewsArticles,
   renderArticles,
@@ -26,7 +26,9 @@ export default function Science() {
   const loaderData: NewsArticleProps = useLoaderData();
   const [articles, setArticles] = useState(loaderData.slice(0, 10));
 
-  scrollToTop();
+  useEffect(() => {
+    scrollToTop();
+  }, []);
   useLoadMore(articles, setArticles, loaderData);
 
   return <>{renderArticles(articles)}</>;

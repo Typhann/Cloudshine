@@ -66,7 +66,7 @@ type NewsArticleProps = {
 export function renderArticles(articles: NewsArticleProps) {
   return (
     <div className="articles-container">
-      {articles &&
+      {articles.length > 1 &&
         articles.map((article: NewsArticleProps) => {
           return (
             <NewsArticle

@@ -1,13 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
 import {
   getNewsArticles,
   renderArticles,
   useLoadMore,
   scrollToTop,
 } from "../../utils";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, Await, defer } from "react-router-dom";
+
 export function loader() {
-  return getNewsArticles("business");
+  return defer({ articles: getNewsArticles("business") });
 }
 
 type NewsArticleProps = {
@@ -22,11 +23,21 @@ type NewsArticleProps = {
 
 export default function Business() {
   const loaderData: NewsArticleProps = useLoaderData();
-  const [articles, setArticles] = useState(loaderData.slice(0, 10));
+  const [articles, setArticles] = useState(loaderData.articles);
 
-  scrollToTop();
+  useEffect(() => {
+    scrollToTop();
+  }, []);
+
   useLoadMore(articles, setArticles, loaderData);
-  return <>{renderArticles(articles)}</>;
-}
 
-//
+  return (
+    <>
+      <Suspense fallback={<h2>Loading...</h2>}>
+        <Await resolve={loaderData.articles}>
+          {(resolvedArticles) => renderArticles(resolvedArticles.slice(0, 10))}
+        </Await>
+      </Suspense>
+    </>
+  );
+}
