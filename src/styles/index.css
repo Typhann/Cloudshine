@@ -198,7 +198,8 @@ header > img {
 .news-wrapper .news-container > .articles-container > .news-card > img {
   width: 100%;
   padding: 0rem;
-  border-radius: 25px;
+  border-radius: 25px 25px 0px 0px;
+  margin-bottom: 10px;
 }
 .news-wrapper .news-container > .articles-container > .news-card > h2 {
   font-size: clamp(1.2rem, 2.5vw, 1.6rem);

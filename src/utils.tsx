@@ -85,7 +85,41 @@ export function renderArticles(articles: NewsArticleProps) {
   );
 }
 
-export function useLoadMore(articles, setArticles, loaderData) {
+// export function useLoadMore(articles, setArticles, loaderData) {
+//   useEffect(() => {
+//     function handleScroll() {
+//       const scrollTop =
+//         document.documentElement.scrollTop || document.body.scrollTop;
+//       const scrollHeight =
+//         document.documentElement.scrollHeight || document.body.scrollHeight;
+//       const clientHeight =
+//         document.documentElement.clientHeight || window.innerHeight;
+//       const reachedBottom = scrollTop + clientHeight >= scrollHeight;
+//       if (reachedBottom) {
+//         loadArticles();
+//         console.log("reached bottom!");
+//         console.log("articles:", articles);
+//         console.log("LoaderData:", loaderData);
+//       }
+//     }
+
+//     window.addEventListener("scroll", handleScroll);
+
+//     return () => window.removeEventListener("scroll", handleScroll);
+//   }, [articles, loadArticles]);
+
+//   function loadArticles() {
+//     const startIndex = articles.length;
+//     const endIndex = startIndex + 10;
+//     const newArticles = [
+//       ...articles,
+//       ...loaderData.slice(startIndex, endIndex),
+//     ];
+//     setArticles(newArticles);
+//   }
+// }
+
+export function useLoadMore(articles, setDisplayArticles) {
   useEffect(() => {
     function handleScroll() {
       const scrollTop =
@@ -96,24 +130,14 @@ export function useLoadMore(articles, setArticles, loaderData) {
         document.documentElement.clientHeight || window.innerHeight;
       const reachedBottom = scrollTop + clientHeight >= scrollHeight;
       if (reachedBottom) {
-        loadArticles();
+        setDisplayArticles((prevArticles) => prevArticles + 10);
       }
     }
 
     window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [articles, loadArticles]);
-
-  function loadArticles() {
-    const startIndex = articles.length;
-    const endIndex = startIndex + 10;
-    const newArticles = [
-      ...articles,
-      ...loaderData.slice(startIndex, endIndex),
-    ];
-    setArticles(newArticles);
-  }
+  }, [articles]);
 }
 
 export function scrollToTop() {

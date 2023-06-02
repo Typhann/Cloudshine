@@ -5,9 +5,10 @@ import {
   useLoadMore,
   scrollToTop,
 } from "../../utils";
-import { useLoaderData, Await } from "react-router-dom";
+import { useLoaderData, Await, defer } from "react-router-dom";
+
 export function loader() {
-  return getNewsArticles("popular");
+  return defer({ articles: getNewsArticles("popular") });
 }
 
 type NewsArticleProps = {
@@ -21,13 +22,24 @@ type NewsArticleProps = {
 };
 
 export default function Popular() {
-  const loaderData: NewsArticleProps = useLoaderData();
-  const [articles, setArticles] = useState(loaderData.slice(0, 10));
+  const loaderData = useLoaderData();
+  const [articles, setArticles] = useState(null);
+  const [displayArticles, setDisplayArticles] = useState(10);
 
   useEffect(() => {
     scrollToTop();
   }, []);
-  useLoadMore(articles, setArticles, loaderData);
 
-  return <>{renderArticles(articles)}</>;
+  useLoadMore(displayArticles, setDisplayArticles);
+
+  return (
+    <>
+      <Suspense fallback={<h2>Loading...</h2>}>
+        <Await resolve={loaderData.articles}>
+          {(resolvedArticles) => setArticles(resolvedArticles)}
+        </Await>
+        {articles && renderArticles(articles.slice(0, displayArticles))}
+      </Suspense>
+    </>
+  );
 }

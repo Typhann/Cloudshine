@@ -22,21 +22,23 @@ type NewsArticleProps = {
 };
 
 export default function Business() {
-  const loaderData: NewsArticleProps = useLoaderData();
-  const [articles, setArticles] = useState(loaderData.articles);
+  const loaderData = useLoaderData();
+  const [articles, setArticles] = useState(null);
+  const [displayArticles, setDisplayArticles] = useState(10);
 
   useEffect(() => {
     scrollToTop();
   }, []);
 
-  useLoadMore(articles, setArticles, loaderData);
+  useLoadMore(displayArticles, setDisplayArticles);
 
   return (
     <>
       <Suspense fallback={<h2>Loading...</h2>}>
         <Await resolve={loaderData.articles}>
-          {(resolvedArticles) => renderArticles(resolvedArticles.slice(0, 10))}
+          {(resolvedArticles) => setArticles(resolvedArticles)}
         </Await>
+        {articles && renderArticles(articles.slice(0, displayArticles))}
       </Suspense>
     </>
   );
