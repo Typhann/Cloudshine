@@ -24,6 +24,8 @@ export async function getNewsArticles(category: string) {
 
   const res = await fetch(url);
 
+  console.log(res);
+
   if (!res.ok) {
     throw {
       message: "Failed to fetch news articles",
@@ -32,7 +34,6 @@ export async function getNewsArticles(category: string) {
     };
   }
   const data: { articles: [] } = await res.json();
-  // console.log("returned from getNews", data.articles);
   return data.articles;
 }
 

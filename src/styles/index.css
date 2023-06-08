@@ -215,7 +215,74 @@ header > img {
   -webkit-text-fill-color: transparent;
 }
 
+.skeleton-article-container {
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+  border-radius: 25px;
+  width: 350px;
+  background-color: white;
+  margin: 0rem 2rem 2rem 0rem;
+}
+.skeleton-article-container > * {
+  padding: 1rem;
+  margin: 1rem;
+  background-color: rgb(175, 175, 175);
+  animation: skeletonOpacity 2s ease-in-out infinite;
+}
+.skeleton-article-container > .skeleton-img {
+  width: 100%;
+  height: 150px;
+  padding: 0rem;
+  border-radius: 25px 25px 0px 0px;
+  margin: 0px 0px 3rem 0px;
+}
+.skeleton-article-container > .skeleton-headline {
+  width: 90%;
+  height: 25px;
+}
+.skeleton-article-container > .skeleton-headline2 {
+  width: 80%;
+  height: 25px;
+}
+.skeleton-article-container > .skeleton-name-date-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem 0rem 1.5rem 0rem;
+  background-color: transparent;
+}
+.skeleton-article-container > .skeleton-name-date-container > .skeleton-name {
+  width: 20%;
+  height: 15px;
+  background-color: rgb(175, 175, 175);
+}
+.skeleton-article-container > .skeleton-name-date-container > .skeleton-date {
+  width: 20%;
+  height: 15px;
+  margin-right: 1.5rem;
+  background-color: rgb(175, 175, 175);
+}
+.skeleton-article-container > .skeleton-text {
+  width: 90%;
+  height: 15px;
+}
+.skeleton-article-container > .skeleton-link {
+  margin-top: 2rem;
+  width: 30%;
+  height: 15px;
+}
+
 .dark {
   background-color: rgb(45, 45, 45);
   color: white;
+}
+
+@keyframes skeletonOpacity {
+  0% {
+    opacity: 50%;
+  }
+  50% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 50%;
+  }
 }/*# sourceMappingURL=index.css.map */
