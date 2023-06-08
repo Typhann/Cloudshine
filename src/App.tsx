@@ -22,10 +22,6 @@ import { loader as scienceLoader } from "./pages/news/Science";
 
 // TODO
 
-// fix useLoadMore in business
-// maybe instead of renderArticles directly in Await setArticles there instead
-// Then the articles displayed is decided by state
-
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>

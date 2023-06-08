@@ -32,7 +32,12 @@ export default function NewsHeadline() {
         <a key={nanoid()} href={headline.url} target="_blank">
           <div className="headline">
             <h2>{headline.title}</h2>
-            <img src={windowIcon} width="12.5px" height="12.5px" />
+            <img
+              src={windowIcon}
+              alt="Icon for external website"
+              width="12.5px"
+              height="12.5px"
+            />
           </div>
         </a>
       );
