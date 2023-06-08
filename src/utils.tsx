@@ -62,13 +62,15 @@ type NewsArticleProps = {
   description: string;
   urlToImage: string;
   url: string;
+  isEven: string;
 };
 
 export function renderArticles(articles: NewsArticleProps) {
   return (
     <div className="articles-container">
       {articles.length > 1 &&
-        articles.map((article: NewsArticleProps) => {
+        articles.map((article: NewsArticleProps, index = number) => {
+          const isEven = index % 2 === 0;
           return (
             <NewsArticle
               key={nanoid()}
@@ -79,6 +81,7 @@ export function renderArticles(articles: NewsArticleProps) {
               description={article.description}
               urlToImage={article.urlToImage}
               url={article.url}
+              isEven={isEven ? true : false}
             />
           );
         })}

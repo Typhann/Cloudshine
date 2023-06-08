@@ -9,6 +9,7 @@ type NewsArticleProps = {
   description: string;
   urlToImage: string;
   url: string;
+  isEven: string;
 };
 
 export default function NewsArticle(props: NewsArticleProps) {
@@ -21,9 +22,11 @@ export default function NewsArticle(props: NewsArticleProps) {
     searchParams.get("mode") === "dark"
       ? "../../public/icons/new-window-light.png"
       : "../../public/icons/new-window-dark.png";
+
+  const isEven = props.isEven ? "even" : "odd";
   return (
     <>
-      <article className="news-card">
+      <article className={`news-card ${isEven}`}>
         <img src={img} alt={props.title} />
         <h2>{props.title}</h2>
         <div className="space-between">
