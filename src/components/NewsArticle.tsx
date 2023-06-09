@@ -26,28 +26,30 @@ export default function NewsArticle(props: NewsArticleProps) {
   const isEven = props.isEven ? "even" : "odd";
   return (
     <>
-      <article className={`news-card ${isEven}`}>
-        <img src={img} alt={props.title} />
-        <h2>{props.title}</h2>
-        <div className="space-between">
-          <h3>{props.author}</h3>
-          <h3>{props.publishedAt.slice(0, 10)}</h3>
-        </div>
-        <p>
-          {props.description} <br></br>
-          <span>
-            <a target="_blank" className="read-more" href={props.url}>
-              Read more{" "}
-              <img
-                src={windowIcon}
-                alt="Icon for external website"
-                width="20px"
-                height="20px"
-              />
-            </a>
-          </span>
-        </p>
-      </article>
+      <a target="_blank" href={props.url}>
+        <article className={`news-card ${isEven}`}>
+          <img src={img} alt={props.title} />
+          <h2>{props.title}</h2>
+          <div className="space-between">
+            <h3>{props.author}</h3>
+            <h3>{props.publishedAt.slice(0, 10)}</h3>
+          </div>
+          <div>
+            {props.description} <br></br>
+            <span>
+              <p className="read-more">
+                Read more{" "}
+                <img
+                  src={windowIcon}
+                  alt="Icon for external website"
+                  width="20px"
+                  height="20px"
+                />
+              </p>
+            </span>
+          </div>
+        </article>
+      </a>
     </>
   );
 }

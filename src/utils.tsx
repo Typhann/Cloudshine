@@ -19,12 +19,13 @@ export function useGetSearchParams() {
 }
 
 export async function getNewsArticles(category: string) {
-  const apiKey = "0ccb8a4744e14aa5bd0ac95652d3aac0";
+  const apiKey = import.meta.env.VITE_REACT_NEWS_API_KEY;
+  // console.log(import.meta.env.VITE_REACT_NEWS_API_KEY);
   const url = `https://newsapi.org/v2/everything?q=${category}&sortBy=publishedAt&pageSize=100&language=en&apiKey=${apiKey}`;
 
   const res = await fetch(url);
 
-  console.log(res);
+  // console.log(res);
 
   if (!res.ok) {
     throw {
@@ -38,7 +39,7 @@ export async function getNewsArticles(category: string) {
 }
 
 export async function getNewsHeadlines() {
-  const apiKey = "0ccb8a4744e14aa5bd0ac95652d3aac0";
+  const apiKey = import.meta.env.VITE_REACT_NEWS_API_KEY;
   const url = `https://newsapi.org/v2/everything?q=popular&pageSize=10&apiKey=${apiKey}`;
 
   const res = await fetch(url);

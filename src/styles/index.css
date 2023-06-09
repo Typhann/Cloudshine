@@ -42,7 +42,7 @@ p {
 
 .section-header {
   font-family: "Poppins", sans-serif;
-  font-size: clamp(0.8rem, 1.5vw, 1.2rem);
+  font-size: clamp(1.2rem, 1.5vw, 1.4rem);
   margin-bottom: -5rem;
 }
 
@@ -137,7 +137,7 @@ header > img {
   border-radius: 7.5px;
   padding: 0.5rem;
   margin: 1rem 1rem 1rem 0rem;
-  font-size: clamp(0.8rem, 1.5vw, 1.2rem);
+  font-size: clamp(1.2rem, 1.5vw, 1.4rem);
 }
 .news-wrapper > nav > a:hover {
   background-color: #00aca1;
@@ -180,7 +180,7 @@ header > img {
   word-break: break-all;
   width: 85%;
 }
-.news-wrapper .news-container > .articles-container > .news-card {
+.news-wrapper .news-container > .articles-container > a > .news-card {
   box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
   border-radius: 25px;
   width: 90%;
@@ -189,15 +189,15 @@ header > img {
        break-inside: avoid-column;
   margin-bottom: 20px;
 }
-.news-wrapper .news-container > .articles-container > .news-card > * {
+.news-wrapper .news-container > .articles-container > a > .news-card > * {
   padding: 1rem;
 }
-.news-wrapper .news-container > .articles-container > .news-card > .space-between {
+.news-wrapper .news-container > .articles-container > a > .news-card > .space-between {
   display: flex;
   justify-content: space-between;
   font-size: clamp(1.2rem, 2.5vw, 1.6rem);
 }
-.news-wrapper .news-container > .articles-container > .news-card > img {
+.news-wrapper .news-container > .articles-container > a > .news-card > img {
   width: 100%;
   height: 200px;
   -o-object-fit: cover;
@@ -206,18 +206,18 @@ header > img {
   border-radius: 25px 25px 0px 0px;
   margin-bottom: 10px;
 }
-.news-wrapper .news-container > .articles-container > .news-card > h2 {
+.news-wrapper .news-container > .articles-container > a > .news-card > h2 {
   font-size: clamp(1.2rem, 2.5vw, 1.6rem);
 }
-.news-wrapper .news-container > .articles-container > .news-card > p {
-  font-size: clamp(0.8rem, 1.5vw, 1.2rem);
-  margin-bottom: 1rem;
+.news-wrapper .news-container > .articles-container > a > .news-card > p {
+  font-size: clamp(1.2rem, 1.5vw, 1.4rem);
 }
-.news-wrapper .news-container > .articles-container > .news-card > p span {
-  font-size: 3rem;
+.news-wrapper .news-container > .articles-container > a > .news-card > p span > p {
+  font-size: 2rem;
   background: -webkit-linear-gradient(10deg, #4dfecc, #bd53ee, #fcb045);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  margin: 1rem 0rem 1rem 0rem;
 }
 
 .skeleton-article-container {

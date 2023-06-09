@@ -8,7 +8,7 @@ export default function Weather() {
   const latitude = 41.390205;
   const longitude = 2.154007;
   const API = "https://api.openweathermap.org/data/2.5/forecast";
-  const apiKey = "59eca2760e6beb3caad0ef1280180867";
+  const apiKey = import.meta.env.VITE_REACT_WEATHER_API_KEY;
   const url = `${API}?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
   const [city, setCity] = useState("");
 
