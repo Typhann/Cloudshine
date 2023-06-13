@@ -192,11 +192,6 @@ header > img {
 .news-wrapper .news-container > .articles-container > a > .news-card > * {
   padding: 1rem;
 }
-.news-wrapper .news-container > .articles-container > a > .news-card > .space-between {
-  display: flex;
-  justify-content: space-between;
-  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-}
 .news-wrapper .news-container > .articles-container > a > .news-card > img {
   width: 100%;
   height: 200px;
@@ -209,15 +204,60 @@ header > img {
 .news-wrapper .news-container > .articles-container > a > .news-card > h2 {
   font-size: clamp(1.2rem, 2.5vw, 1.6rem);
 }
-.news-wrapper .news-container > .articles-container > a > .news-card > p {
+.news-wrapper .news-container > .articles-container > a > .news-card > .space-between {
+  display: flex;
+  justify-content: space-between;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+}
+.news-wrapper .news-container > .articles-container > a > .news-card > div > p {
   font-size: clamp(1.2rem, 1.5vw, 1.4rem);
 }
-.news-wrapper .news-container > .articles-container > a > .news-card > p span > p {
+.news-wrapper .news-container > .articles-container > a > .news-card > div span > p {
   font-size: 2rem;
   background: -webkit-linear-gradient(10deg, #4dfecc, #bd53ee, #fcb045);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 1rem 0rem 1rem 0rem;
+}
+.news-wrapper .news-container > .articles-container > a > .news-card > div span > p > img {
+  margin-left: 1rem;
+}
+
+.skeleton-weather-card-container {
+  width: 12.5rem;
+  height: 7.5rem;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  border: 2px solid rgb(175, 175, 175);
+  margin: 1rem;
+}
+.skeleton-weather-card-container > * {
+  padding: 0.25rem;
+  animation: skeletonOpacity 2s ease-in-out infinite;
+}
+.skeleton-weather-card-container > .card-skeleton-info {
+  width: 75px;
+  height: 10px;
+  background-color: rgb(175, 175, 175);
+}
+.skeleton-weather-card-container > .card-row {
+  display: flex;
+}
+.skeleton-weather-card-container > .card-row > .temperature-skeleton {
+  width: 35px;
+  height: 10px;
+  background-color: rgb(175, 175, 175);
+  margin: 10px 10px 0px 0px;
+}
+.skeleton-weather-card-container > .card-row > .img-skeleton {
+  width: 30px;
+  height: 30px;
+  background-color: rgb(175, 175, 175);
+  margin: 5px 0px 5px 0px;
 }
 
 .skeleton-article-container {
@@ -274,6 +314,15 @@ header > img {
   margin-top: 2rem;
   width: 30%;
   height: 15px;
+}
+
+.headline-skeleton {
+  width: 200px;
+  height: 20px;
+  background-color: rgb(175, 175, 175);
+  animation: skeletonOpacity 2s ease-in-out infinite;
+  margin-bottom: 20px;
+  border-radius: 12px;
 }
 
 .dark {

@@ -3,10 +3,11 @@ import { useDarkMode, getNewsHeadlines } from "../utils";
 import { useSearchParams } from "react-router-dom";
 import { render } from "react-dom";
 import { nanoid } from "nanoid";
+import Skeleton from "./Skeleton";
 
 export default function NewsHeadline() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [headlines, setHeadlines] = useState([]);
+  const [headlines, setHeadlines] = useState(null);
 
   useEffect(() => {
     const apiKey = "0ccb8a4744e14aa5bd0ac95652d3aac0";
@@ -46,7 +47,9 @@ export default function NewsHeadline() {
   return (
     <>
       <h2 className="trending">Trending 📈</h2>
-      <div className={useDarkMode("news-headlines")}>{renderHeadlines}</div>
+      <div className={useDarkMode("news-headlines")}>
+        {headlines ? renderHeadlines : <Skeleton type="headlines" />}
+      </div>
     </>
   );
 }

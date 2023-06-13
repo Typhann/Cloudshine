@@ -6,7 +6,7 @@ import {
   scrollToTop,
 } from "../../utils";
 import { useLoaderData, Await, defer } from "react-router-dom";
-import ArticleSkeleton from "../../components/ArticleSkeleton";
+import Skeleton from "../../components/Skeleton";
 
 export function loader() {
   return defer({ articles: getNewsArticles("sports") });
@@ -35,7 +35,7 @@ export default function Sports() {
 
   return (
     <>
-      <Suspense fallback={<ArticleSkeleton />}>
+      <Suspense fallback={<Skeleton type="articles" />}>
         <Await resolve={loaderData.articles}>
           {(resolvedArticles) => setArticles(resolvedArticles)}
         </Await>

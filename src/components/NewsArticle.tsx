@@ -35,10 +35,10 @@ export default function NewsArticle(props: NewsArticleProps) {
             <h3>{props.publishedAt.slice(0, 10)}</h3>
           </div>
           <div>
-            {props.description} <br></br>
+            <p>{props.description}</p>
             <span>
               <p className="read-more">
-                Read more{" "}
+                Read more
                 <img
                   src={windowIcon}
                   alt="Icon for external website"

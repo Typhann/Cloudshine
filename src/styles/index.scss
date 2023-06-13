@@ -171,11 +171,6 @@ header {
           > * {
             padding: 1rem;
           }
-          > .space-between {
-            display: flex;
-            justify-content: space-between;
-            font-size: $subheader-size;
-          }
           > img {
             width: 100%;
             height: 200px;
@@ -187,8 +182,15 @@ header {
           > h2 {
             font-size: $subheader-size;
           }
-          > p {
-            font-size: $text-size;
+          > .space-between {
+            display: flex;
+            justify-content: space-between;
+            font-size: $subheader-size;
+          }
+          > div {
+            > p {
+              font-size: $text-size;
+            }
             span {
               > p {
                 font-size: 2rem;
@@ -201,6 +203,9 @@ header {
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 margin: 1rem 0rem 1rem 0rem;
+                > img {
+                  margin-left: 1rem;
+                }
               }
             }
             // margin-bottom: 1rem;
@@ -217,6 +222,41 @@ h2 {
 //   width: 50px;
 //   height: 50px;
 // }
+
+.skeleton-weather-card-container {
+  width: 12.5rem;
+  height: 7.5rem;
+  border-radius: 25px;
+  @include flexCenter(column);
+  background-color: white;
+  border: 2px solid $skeleton;
+  margin: 1rem;
+  > * {
+    // margin: 1rem;
+    padding: 0.25rem;
+    animation: skeletonOpacity 2s ease-in-out infinite;
+  }
+  > .card-skeleton-info {
+    width: 75px;
+    height: 10px;
+    background-color: $skeleton;
+  }
+  > .card-row {
+    display: flex;
+    > .temperature-skeleton {
+      width: 35px;
+      height: 10px;
+      background-color: $skeleton;
+      margin: 10px 10px 0px 0px;
+    }
+    > .img-skeleton {
+      width: 30px;
+      height: 30px;
+      background-color: $skeleton;
+      margin: 5px 0px 5px 0px;
+    }
+  }
+}
 
 .skeleton-article-container {
   box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
@@ -273,6 +313,15 @@ h2 {
     width: 30%;
     height: 15px;
   }
+}
+
+.headline-skeleton {
+  width: 200px;
+  height: 20px;
+  background-color: rgb(175, 175, 175);
+  animation: skeletonOpacity 2s ease-in-out infinite;
+  margin-bottom: 20px;
+  border-radius: 12px;
 }
 
 .dark {

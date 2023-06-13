@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import WeatherCard from "./components/WeatherCard";
 import { WeatherCardData } from "./interface/interface";
 import { useDarkMode } from "./utils";
+import Skeleton from "./components/Skeleton";
 
 export default function Weather() {
   const [weatherData, setWeatherData] = useState<WeatherCardData[] | null>();
@@ -95,7 +96,7 @@ export default function Weather() {
     <div className={useDarkMode("weather-section")}>
       <h2 className="section-header">5 day forecast for {city}</h2>
       <section className="weather-container">
-        {weatherData &&
+        {weatherData ? (
           weatherData.map((item) => (
             <WeatherCard
               key={item.id}
@@ -104,7 +105,10 @@ export default function Weather() {
               img={item.img}
               description={item.description}
             />
-          ))}
+          ))
+        ) : (
+          <Skeleton type="weather" />
+        )}
       </section>
     </div>
   );
