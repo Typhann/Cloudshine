@@ -24,7 +24,7 @@ type NewsArticleProps = {
 
 export default function Sports() {
   const loaderData = useLoaderData();
-  const [articles, setArticles] = useState(null);
+  // const [articles, setArticles] = useState<NewsArticleProps[]>([]);
   const [displayArticles, setDisplayArticles] = useState(10);
 
   useEffect(() => {
@@ -37,9 +37,11 @@ export default function Sports() {
     <>
       <Suspense fallback={<Skeleton type="articles" />}>
         <Await resolve={loaderData.articles}>
-          {(resolvedArticles) => setArticles(resolvedArticles)}
+          {(resolvedArticles: NewsArticleProps[]) =>
+            resolvedArticles &&
+            renderArticles(resolvedArticles.slice(0, displayArticles))
+          }
         </Await>
-        {articles && renderArticles(articles.slice(0, displayArticles))}
       </Suspense>
     </>
   );

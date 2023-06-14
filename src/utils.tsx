@@ -24,7 +24,6 @@ export async function getNewsArticles(category: string) {
   const url = `https://newsapi.org/v2/everything?q=${category}&sortBy=publishedAt&pageSize=100&language=en&apiKey=${apiKey}`;
 
   const res = await fetch(url);
-
   // console.log(res);
 
   if (!res.ok) {
@@ -63,15 +62,13 @@ type NewsArticleProps = {
   description: string;
   urlToImage: string;
   url: string;
-  isEven: string;
 };
 
 export function renderArticles(articles: NewsArticleProps) {
   return (
     <div className="articles-container">
       {articles.length > 1 &&
-        articles.map((article: NewsArticleProps, index = number) => {
-          const isEven = index % 2 === 0;
+        articles.map((article: NewsArticleProps) => {
           return (
             <NewsArticle
               key={nanoid()}
@@ -82,7 +79,6 @@ export function renderArticles(articles: NewsArticleProps) {
               description={article.description}
               urlToImage={article.urlToImage}
               url={article.url}
-              isEven={isEven ? true : false}
             />
           );
         })}

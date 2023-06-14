@@ -59,7 +59,6 @@ export default function Weather() {
       .catch((error) => console.log(error));
   }, []);
 
-  // console.log(weatherData);
   function kelvinToCelcius(num: number) {
     return num - 273.15;
   }
@@ -76,10 +75,6 @@ export default function Weather() {
     } else {
       const options: Intl.DateTimeFormatOptions = {
         weekday: "long",
-        // month: "numeric",
-        // day: "numeric",
-        // hour: "numeric",
-        // minute: "numeric",
         timeZone: "Europe/Paris",
       };
       let formattedDate: string = new Intl.DateTimeFormat("en-US", options)
@@ -89,8 +84,6 @@ export default function Weather() {
       return formattedDate;
     }
   }
-
-  // console.log(weatherData);
 
   return (
     <div className={useDarkMode("weather-section")}>

@@ -165,7 +165,7 @@ header > img {
 .news-wrapper .news-container > .trending-headlines > .news-headlines {
   display: flex;
   flex-direction: column;
-  font-size: 4rem;
+  font-size: 4.5rem;
 }
 .news-wrapper .news-container > .trending-headlines > .news-headlines > a > .headline {
   display: flex;
@@ -323,6 +323,20 @@ header > img {
   animation: skeletonOpacity 2s ease-in-out infinite;
   margin-bottom: 20px;
   border-radius: 12px;
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+}
+.error-container > h2,
+.error-container pre,
+.error-container h3 {
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  padding: 1rem;
 }
 
 .dark {

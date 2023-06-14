@@ -19,17 +19,43 @@ import { loader as sportsLoader } from "./pages/news/Sports";
 import { loader as businessLoader } from "./pages/news/Business";
 import { loader as techLoader } from "./pages/news/Tech";
 import { loader as scienceLoader } from "./pages/news/Science";
+import Error from "./components/Error";
 
 // TODO
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
-      <Route index element={<Popular />} loader={popularLoader} />
-      <Route path={`sports`} element={<Sports />} loader={sportsLoader} />
-      <Route path="business" element={<Business />} loader={businessLoader} />
-      <Route path="tech" element={<Tech />} loader={techLoader} />
-      <Route path="science" element={<Science />} loader={scienceLoader} />
+      <Route
+        errorElement={<Error />}
+        index
+        element={<Popular />}
+        loader={popularLoader}
+      />
+      <Route
+        errorElement={<Error />}
+        path={`sports`}
+        element={<Sports />}
+        loader={sportsLoader}
+      />
+      <Route
+        errorElement={<Error />}
+        path="business"
+        element={<Business />}
+        loader={businessLoader}
+      />
+      <Route
+        errorElement={<Error />}
+        path="tech"
+        element={<Tech />}
+        loader={techLoader}
+      />
+      <Route
+        errorElement={<Error />}
+        path="science"
+        element={<Science />}
+        loader={scienceLoader}
+      />
     </Route>
   )
 );
