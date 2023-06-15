@@ -28,7 +28,7 @@ export default function NewsArticle(props: NewsArticleProps) {
     <>
       <a target="_blank" href={props.url}>
         <article className={`news-card ${isEven}`}>
-          <img src={img} alt={props.title} />
+          <img src={img} alt={props.title} loading="lazy" />
           <h2>{props.title}</h2>
           <div className="space-between">
             <h3>{props.author}</h3>
