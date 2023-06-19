@@ -3,21 +3,12 @@ import { useSearchParams } from "react-router-dom";
 import { useDarkMode } from "../utils";
 import darkModeImg from "../../public/icons/darkMode.png";
 import lightModeImg from "../../public/icons/lightMode.png";
-import searchImg from "../../public/icons/search-interface-symbol.png";
+import Search from "./Search";
 
 export default function Header() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [placeholder, setPlaceholder] = useState("Search");
 
   const img = searchParams.get("mode") === "dark" ? lightModeImg : darkModeImg;
-
-  const handleFocus = () => {
-    setPlaceholder("Search for any news articles");
-  };
-
-  const handleBlur = () => {
-    setPlaceholder("Search");
-  };
 
   function toggleDarkMode() {
     if (searchParams.get("mode") === "dark") {
@@ -27,6 +18,7 @@ export default function Header() {
       setSearchParams("mode=dark");
       document.body.style = "background: rgb(45, 45, 45);";
     }
+    console.log(searchParams.get);
   }
   // useGetSearchParams();
   // getNewsArticles("sports", "5");
@@ -34,16 +26,7 @@ export default function Header() {
     <header className={useDarkMode("header")}>
       <h1>Cloudshine</h1>
       <div className="search-darkmode">
-        <form>
-          <img src={searchImg} alt="search" width="15px" />
-          <input
-            className={useDarkMode("search")}
-            type="text"
-            placeholder={placeholder}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
-          ></input>
-        </form>
+        <Search />
         <img
           onClick={toggleDarkMode}
           src={img}
