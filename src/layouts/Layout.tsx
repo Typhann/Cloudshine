@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Header from "../components/Header";
 import Weather from "../Weather";
 import NewsHeadlines from "../components/NewsHeadlines";
-import { useDarkMode } from "../utils";
+import { getSearchParam, useDarkMode } from "../utils";
 import { NavLink, Outlet, useSearchParams } from "react-router-dom";
 
 export default function Layout() {
@@ -15,10 +15,7 @@ export default function Layout() {
 
   const [searchParams, setSearchParams] = useSearchParams();
 
-  function getSearchParam() {
-    const sp = new URLSearchParams(searchParams);
-    return `?${sp.toString()}`;
-  }
+  getSearchParam(searchParams);
 
   const [scrolled, setScrolled] = useState("");
   window.addEventListener("scroll", function () {
@@ -38,7 +35,7 @@ export default function Layout() {
         <nav className={`news-nav ${scrolled}`}>
           <NavLink
             className={useDarkMode("navlink")}
-            to={`./${getSearchParam()}`}
+            to={`./${getSearchParam(searchParams)}`}
             end
             style={({ isActive }) => (isActive ? activeStyle : inActive)}
           >
@@ -46,32 +43,43 @@ export default function Layout() {
           </NavLink>
           <NavLink
             className={useDarkMode("navlink")}
-            to={`sports/${getSearchParam()}`}
+            to={`sports/${getSearchParam(searchParams)}`}
             style={({ isActive }) => (isActive ? activeStyle : inActive)}
           >
             Sports
           </NavLink>
           <NavLink
             className={useDarkMode("navlink")}
-            to={`business/${getSearchParam()}`}
+            to={`business/${getSearchParam(searchParams)}`}
             style={({ isActive }) => (isActive ? activeStyle : inActive)}
           >
             Business
           </NavLink>
           <NavLink
             className={useDarkMode("navlink")}
-            to={`tech/${getSearchParam()}`}
+            to={`tech/${getSearchParam(searchParams)}`}
             style={({ isActive }) => (isActive ? activeStyle : inActive)}
           >
             Tech
           </NavLink>
           <NavLink
             className={useDarkMode("navlink")}
-            to={`science/${getSearchParam()}`}
+            to={`science/${getSearchParam(searchParams)}`}
             style={({ isActive }) => (isActive ? activeStyle : inActive)}
           >
             Science
           </NavLink>
+          {searchParams.get("query") && (
+            <NavLink
+              className={useDarkMode("navlink")}
+              to={`search/${getSearchParam(searchParams)}`}
+              style={({ isActive }) => (isActive ? activeStyle : inActive)}
+            >
+              {searchParams.get("query").length > 6
+                ? `${searchParams.get("query").slice(0, 6)}..`
+                : searchParams.get("query")}
+            </NavLink>
+          )}
         </nav>
         <div className="news-container">
           <Outlet />

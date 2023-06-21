@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import { useDarkMode } from "../utils";
+import { updateURL, useDarkMode } from "../utils";
 import darkModeImg from "../../public/icons/darkMode.png";
 import lightModeImg from "../../public/icons/lightMode.png";
 import Search from "./Search";

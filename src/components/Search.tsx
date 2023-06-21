@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import searchImg from "../../public/icons/search-interface-symbol.png";
-import { useDarkMode } from "../utils";
+import { useDarkMode, updateURL, getSearchParam } from "../utils";
 import { useSearchParams } from "react-router-dom";
 
 export default function Search() {
@@ -20,31 +20,36 @@ export default function Search() {
       handleSubmit(event);
     }
   };
-  // console.log(searchParams.get("mode"));
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(inputValue);
+    // console.log(inputValue);
 
     if (inputValue.length > 0) {
+      // updateURL(searchParams, "query", inputValue);
       const urlSearchParams = new URLSearchParams(searchParams);
+
+      if (urlSearchParams.has("query")) {
+        urlSearchParams.delete("query");
+      }
       urlSearchParams.set("query", inputValue);
       const newSearchString = urlSearchParams.toString();
       const newUrl = `${window.location.pathname}?${newSearchString}`;
       window.history.pushState({ path: newUrl }, "", newUrl);
+      window.location.href = `http://127.0.0.1:5175/search/?query=${inputValue}`;
     }
     setInputValue("");
   };
 
-  function genNewSearchParamString(key, value) {
-    const sp = new URLSearchParams(searchParams);
-    if (value === null) {
-      sp.delete(key);
-    } else {
-      sp.set(key, value);
-    }
-    return `?${sp.toString()}`;
-  }
+  // function genNewSearchParamString(key, value) {
+  //   const sp = new URLSearchParams(searchParams);
+  //   if (value === null) {
+  //     sp.delete(key);
+  //   } else {
+  //     sp.set(key, value);
+  //   }
+  //   return `?${sp.toString()}`;
+  // }
 
   return (
     <form>
