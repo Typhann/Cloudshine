@@ -6,9 +6,9 @@ import lightModeImg from "../../public/icons/lightMode.png";
 import Search from "./Search";
 
 export default function Header() {
-  const [searchParams, setSearchParams] = useSearchParams();
+  // const [searchParams, setSearchParams] = useSearchParams();
 
-  const img = searchParams.get("mode") === "dark" ? lightModeImg : darkModeImg;
+  // const img = searchParams.get("mode") === "dark" ? lightModeImg : darkModeImg;
 
   function toggleDarkMode() {
     if (searchParams.get("mode") === "dark") {
