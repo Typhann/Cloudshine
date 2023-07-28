@@ -24,7 +24,7 @@ p {
   margin-bottom: -5rem;
 }
 
-header {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -44,6 +44,8 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    // z-index: 100;
+    // border: 2px solid red;
     > img {
       cursor: pointer;
     }
@@ -132,12 +134,15 @@ header {
   > .scrolled {
     position: fixed;
     top: 0;
-    margin-left: 70%;
+    margin-left: 450px;
     margin-top: 25px;
+    // border: 2px solid black;
   }
   > nav {
     // border: 2px solid orange;
-    width: 100%;
+    // width: 100%;
+    align-self: flex-start;
+    z-index: 1;
     > a {
       color: black;
       border-radius: 7.5px;
