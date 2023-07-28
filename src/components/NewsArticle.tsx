@@ -1,5 +1,6 @@
-import React from "react";
+import { useContext } from "react";
 import { useSearchParams } from "react-router-dom";
+import DarkModeContext from "../DarkModeContext";
 
 type NewsArticleProps = {
   id: number;
@@ -14,14 +15,14 @@ type NewsArticleProps = {
 
 export default function NewsArticle(props: NewsArticleProps) {
   const [searchParams, setSearchParams] = useSearchParams();
+  const { darkMode, setDarkMode } = useContext(DarkModeContext);
   const img = props.urlToImage
     ? props.urlToImage
     : "https://images.pexels.com/photos/1369476/pexels-photo-1369476.jpeg?auto=compress&cs=tinysrgb&w=1600";
 
-  const windowIcon =
-    searchParams.get("mode") === "dark"
-      ? "../../public/icons/new-window-light.png"
-      : "../../public/icons/new-window-dark.png";
+  const windowIcon = darkMode
+    ? "../../public/icons/new-window-light.png"
+    : "../../public/icons/new-window-dark.png";
 
   // const isEven = props.isEven ? "even" : "odd";
   return (

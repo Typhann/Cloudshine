@@ -1,12 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useDarkMode, getNewsHeadlines } from "../utils";
 import { useSearchParams } from "react-router-dom";
 import { render } from "react-dom";
 import { nanoid } from "nanoid";
 import Skeleton from "./Skeleton";
+import DarkModeContext from "../DarkModeContext";
 
 export default function NewsHeadline() {
   const [searchParams, setSearchParams] = useSearchParams();
+  const { darkMode, setDarkMode } = useContext(DarkModeContext);
   const [headlines, setHeadlines] = useState(null);
 
   useEffect(() => {
@@ -21,10 +23,9 @@ export default function NewsHeadline() {
       });
   }, []);
 
-  const windowIcon =
-    searchParams.get("mode") === "dark"
-      ? "../../public/icons/new-window-light.png"
-      : "../../public/icons/new-window-dark.png";
+  const windowIcon = darkMode
+    ? "../../public/icons/new-window-light.png"
+    : "../../public/icons/new-window-dark.png";
 
   const renderHeadlines =
     headlines &&

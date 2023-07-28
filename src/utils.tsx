@@ -1,12 +1,13 @@
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
+import DarkModeContext from "./DarkModeContext";
 import { useSearchParams, useParams } from "react-router-dom";
 import NewsArticle from "./components/NewsArticle";
 import { nanoid } from "nanoid";
 
 export function useDarkMode(className: string) {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const mode =
-    searchParams.get("mode") === "dark" ? `dark ${className}` : className;
+  // const [searchParams, setSearchParams] = useSearchParams();
+  const { darkMode, setDarkMode } = useContext(DarkModeContext);
+  const mode = darkMode ? `dark ${className}` : className;
   return mode;
 }
 

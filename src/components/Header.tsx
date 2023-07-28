@@ -4,22 +4,29 @@ import { updateURL, useDarkMode } from "../utils";
 import darkModeImg from "../../public/icons/darkMode.png";
 import lightModeImg from "../../public/icons/lightMode.png";
 import Search from "./Search";
+import DarkModeToggle from "./DarkModeToggle";
 
 export default function Header() {
   // const [searchParams, setSearchParams] = useSearchParams();
+  // const [darkMode, setDarkmode] = useState(false);
 
-  // const img = searchParams.get("mode") === "dark" ? lightModeImg : darkModeImg;
+  // const img = darkMode ? darkModeImg : lightModeImg;
 
-  function toggleDarkMode() {
-    if (searchParams.get("mode") === "dark") {
-      document.body.style = "background: white;";
-      setSearchParams("mode=light");
-    } else {
-      setSearchParams("mode=dark");
-      document.body.style = "background: rgb(45, 45, 45);";
-    }
-    console.log(searchParams.get);
-  }
+  // function toggleDarkMode() {
+  //   setDarkmode(!darkMode);
+  //   console.log(darkMode);
+  //   if (darkMode) {
+  //     document.body.style = "background: rgb(45, 45, 45);";
+  //   } else {
+  //     document.body.style = "background: white;";
+  //   }
+  // if (searchParams.get("mode") === "dark") {
+  //   setSearchParams("mode=light");
+  // } else {
+  //   setSearchParams("mode=dark");
+  // }
+  // console.log(searchParams.get);
+
   // useGetSearchParams();
   // getNewsArticles("sports", "5");
   return (
@@ -27,13 +34,14 @@ export default function Header() {
       <h1>Cloudshine</h1>
       <div className="search-darkmode">
         <Search />
-        <img
+        <DarkModeToggle />
+        {/* <img
           onClick={toggleDarkMode}
           src={img}
           alt="dark mode toggle"
           width="20px"
           height="20px"
-        />
+        /> */}
       </div>
     </header>
   );
