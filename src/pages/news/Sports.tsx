@@ -23,7 +23,7 @@ type NewsArticleProps = {
 };
 
 export default function Sports() {
-  const loaderData = useLoaderData();
+  const loaderData: any = useLoaderData();
   // const [articles, setArticles] = useState<NewsArticleProps[]>([]);
   const [displayArticles, setDisplayArticles] = useState(10);
 

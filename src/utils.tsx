@@ -64,7 +64,7 @@ type NewsArticleProps = {
   url: string;
 };
 
-export function renderArticles(articles: NewsArticleProps) {
+export function renderArticles(articles: NewsArticleProps[]) {
   return (
     <div className="articles-container">
       {articles.length > 1 &&
