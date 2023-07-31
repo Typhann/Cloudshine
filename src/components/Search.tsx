@@ -3,18 +3,11 @@ import searchImg from "../../public/icons/search-interface-symbol.png";
 import { useDarkMode, updateURL, getSearchParam } from "../utils";
 import { useSearchParams } from "react-router-dom";
 
-export default function Search() {
-  const [placeholder, setPlaceholder] = useState("Search");
+export default function Search(props) {
+  // const [placeholder, setPlaceholder] = useState("Search");
   const [inputValue, setInputValue] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const handleFocus = () => {
-    setPlaceholder("Search for any news articles");
-  };
-
-  const handleBlur = () => {
-    setPlaceholder("Search");
-  };
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       handleSubmit(event);
@@ -57,9 +50,9 @@ export default function Search() {
       <input
         className={useDarkMode("search")}
         type="text"
-        placeholder={placeholder}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
+        placeholder={props.placeholder}
+        onFocus={props.handleFocus}
+        onBlur={props.handleBlur}
         onChange={(e) => setInputValue(e.target.value)}
         value={inputValue}
         onKeyDown={handleKeyDown}

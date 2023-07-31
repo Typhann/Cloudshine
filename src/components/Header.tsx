@@ -5,8 +5,10 @@ import darkModeImg from "../../public/icons/darkMode.png";
 import lightModeImg from "../../public/icons/lightMode.png";
 import Search from "./Search";
 import DarkModeToggle from "./DarkModeToggle";
+import NewsNav from "./NewsNav";
 
 export default function Header() {
+  const [placeholder, setPlaceholder] = useState("Search");
   // const [searchParams, setSearchParams] = useSearchParams();
   // const [darkMode, setDarkmode] = useState(false);
 
@@ -29,11 +31,33 @@ export default function Header() {
 
   // useGetSearchParams();
   // getNewsArticles("sports", "5");
+  const [scrolled, setScrolled] = useState(false);
+  window.addEventListener("scroll", function () {
+    if (window.scrollY >= 150) {
+      setScrolled(true);
+    }
+    if (window.scrollY <= 150) {
+      setScrolled(false);
+    }
+  });
+  const handleFocus = () => {
+    setPlaceholder("Search for any news articles");
+    setScrolled(false);
+  };
+  const handleBlur = () => {
+    setPlaceholder("Search");
+    setScrolled(true);
+  };
   return (
     <header className={useDarkMode("header")}>
       <h1>Cloudshine</h1>
+      {scrolled && <NewsNav />}
       <div className="search-darkmode">
-        <Search />
+        <Search
+          handleFocus={handleFocus}
+          placeholder={placeholder}
+          handleBlur={handleBlur}
+        />
         <DarkModeToggle />
         {/* <img
           onClick={toggleDarkMode}
