@@ -1,5 +1,7 @@
-import React, { useState } from "react";
-import searchImg from "../../public/icons/search-interface-symbol.png";
+import React, { useState, useContext } from "react";
+import searchImgDark from "../../public/icons/search-dark.png";
+import searchImgLight from "../../public/icons/search-light.png";
+import DarkModeContext from "../DarkModeContext";
 import { useDarkMode, updateURL, getSearchParam } from "../utils";
 import { useSearchParams } from "react-router-dom";
 
@@ -7,6 +9,9 @@ export default function Search(props) {
   // const [placeholder, setPlaceholder] = useState("Search");
   const [inputValue, setInputValue] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
+  const { darkMode, setDarkMode } = useContext(DarkModeContext);
+
+  const searchImg = darkMode ? searchImgLight : searchImgDark;
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
@@ -46,7 +51,7 @@ export default function Search(props) {
 
   return (
     <form>
-      <img src={searchImg} alt="search" width="15px" />
+      <img src={searchImg} alt="search" />
       <input
         className={useDarkMode("search")}
         type="text"

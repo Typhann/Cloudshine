@@ -7,6 +7,7 @@ import { getSearchParam, useDarkMode } from "../utils";
 import { NavLink, Outlet, useSearchParams } from "react-router-dom";
 
 export default function Layout() {
+  const viewportWidth = window.innerWidth;
   // const activeStyle = {
   //   backgroundColor: "#00ACA1",
   // };
@@ -21,7 +22,7 @@ export default function Layout() {
   // console.log(scrolled);
   const [scrolled, setScrolled] = useState(false);
   window.addEventListener("scroll", function () {
-    if (window.scrollY >= 150) {
+    if (window.scrollY >= 150 && viewportWidth >= 480) {
       setScrolled(true);
     }
     if (window.scrollY <= 150) {

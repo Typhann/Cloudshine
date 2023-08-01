@@ -10,6 +10,8 @@ export default function NewsHeadline() {
   const [searchParams, setSearchParams] = useSearchParams();
   const { darkMode, setDarkMode } = useContext(DarkModeContext);
   const [headlines, setHeadlines] = useState(null);
+  const viewportWidth = window.innerWidth;
+  const [displayHeadlines, setDisplayHeadlines] = useState(false);
 
   useEffect(() => {
     const apiKey = "0ccb8a4744e14aa5bd0ac95652d3aac0";
@@ -22,6 +24,14 @@ export default function NewsHeadline() {
         // console.log(data);
       });
   }, []);
+
+  useEffect(() => {
+    if (viewportWidth >= 481) {
+      setDisplayHeadlines(true);
+    } else {
+      setDisplayHeadlines(false);
+    }
+  }, [viewportWidth]);
 
   const windowIcon = darkMode
     ? "../../public/icons/new-window-light.png"
@@ -47,10 +57,14 @@ export default function NewsHeadline() {
 
   return (
     <>
-      <h2 className="trending">Trending 📈</h2>
-      <div className={useDarkMode("news-headlines")}>
-        {headlines ? renderHeadlines : <Skeleton type="headlines" />}
-      </div>
+      {displayHeadlines && (
+        <>
+          <h2 className="trending">Trending 📈</h2>
+          <div className={useDarkMode("news-headlines")}>
+            {headlines ? renderHeadlines : <Skeleton type="headlines" />}
+          </div>
+        </>
+      )}
     </>
   );
 }

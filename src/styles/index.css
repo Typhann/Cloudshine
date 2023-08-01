@@ -13,7 +13,6 @@ input {
 
 textarea {
   border: none;
-  overflow: auto;
   outline: none;
   box-shadow: none;
   resize: none; /*remove the resize handle on the bottom right*/
@@ -81,7 +80,6 @@ p {
   width: 60px;
   font-family: poppins;
   font-size: clamp(1.2rem, 1.5vw, 1.4rem);
-  background-color: white;
   margin-left: 5px;
 }
 .header > .search-darkmode > form > input:focus {
@@ -144,18 +142,6 @@ p {
   color: white;
 }
 
-.news-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.news-wrapper > .scrolled {
-  position: fixed;
-  top: 0;
-  margin-top: 25px;
-  align-self: center;
-}
 .news-wrapper .news-container {
   display: flex;
   justify-content: center;
@@ -234,6 +220,7 @@ p {
 }
 
 .news-nav {
+  background-color: white;
   align-self: flex-start;
   z-index: 1;
 }
@@ -406,5 +393,33 @@ p {
   }
   .news-nav > a {
     margin: 1rem 0.25rem 1rem 0rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  input:focus {
+    width: 175px;
+  }
+}
+@media screen and (max-width: 480px) {
+  input:focus {
+    width: 275px !important;
+  }
+  .news-container {
+    display: block !important;
+  }
+  .news-container > .articles-container {
+    width: 100% !important;
+  }
+  .news-container > .articles-container > a .news-card {
+    width: 100% !important;
+  }
+  .news-nav {
+    position: sticky;
+    top: 48px;
+    height: 50px;
+    width: 105%;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: -5px;
   }
 }/*# sourceMappingURL=index.css.map */

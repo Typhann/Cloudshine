@@ -13,18 +13,18 @@ export default function NewsNav() {
   const [searchParams, setSearchParams] = useSearchParams();
   getSearchParam(searchParams);
 
-  const [scrolled, setScrolled] = useState("");
-  window.addEventListener("scroll", function () {
-    if (window.scrollY >= 150) {
-      setScrolled("scrolled");
-    }
-    if (window.scrollY <= 150) {
-      setScrolled("");
-    }
-  });
+  // const [scrolled, setScrolled] = useState("");
+  // window.addEventListener("scroll", function () {
+  //   if (window.scrollY >= 150) {
+  //     setScrolled("scrolled");
+  //   }
+  //   if (window.scrollY <= 150) {
+  //     setScrolled("");
+  //   }
+  // });
 
   return (
-    <nav className={`news-nav ${scrolled}`}>
+    <nav className={useDarkMode("news-nav")}>
       <NavLink
         className={useDarkMode("navlink")}
         to={`./${getSearchParam(searchParams)}`}

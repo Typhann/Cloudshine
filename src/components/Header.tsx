@@ -31,27 +31,39 @@ export default function Header() {
 
   // useGetSearchParams();
   // getNewsArticles("sports", "5");
-  const [scrolled, setScrolled] = useState(false);
+  const viewportWidth = window.innerWidth;
+  const [newsNavHeader, setNewsNavHeader] = useState(false);
+  const [displayLogo, setDisplayLogo] = useState(true);
   window.addEventListener("scroll", function () {
-    if (window.scrollY >= 150) {
-      setScrolled(true);
-    }
-    if (window.scrollY <= 150) {
-      setScrolled(false);
+    if (window.scrollY >= 150 && viewportWidth >= 481) {
+      setNewsNavHeader(true);
+    } else {
+      setNewsNavHeader(false);
     }
   });
   const handleFocus = () => {
     setPlaceholder("Search for any news articles");
-    setScrolled(false);
+    if (viewportWidth <= 920) {
+      setNewsNavHeader(false);
+    }
+    if (viewportWidth <= 480) {
+      setDisplayLogo(false);
+    }
   };
   const handleBlur = () => {
     setPlaceholder("Search");
-    setScrolled(true);
+    if (viewportWidth <= 920 && window.scrollY != 0) {
+      setNewsNavHeader(true);
+    }
+
+    if (viewportWidth <= 480) {
+      setDisplayLogo(true);
+    }
   };
   return (
     <header className={useDarkMode("header")}>
-      <h1>Cloudshine</h1>
-      {scrolled && <NewsNav />}
+      {displayLogo && <h1>Cloudshine</h1>}
+      {newsNavHeader && <NewsNav />}
       <div className="search-darkmode">
         <Search
           handleFocus={handleFocus}
