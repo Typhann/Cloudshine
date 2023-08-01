@@ -34,7 +34,7 @@ export default function Search(props) {
       const newSearchString = urlSearchParams.toString();
       const newUrl = `${window.location.pathname}?${newSearchString}`;
       window.history.pushState({ path: newUrl }, "", newUrl);
-      window.location.href = `http://127.0.0.1:5173/search/?query=${inputValue}`;
+      window.location.href = `/search/?query=${inputValue}`;
     }
     setInputValue("");
   };
