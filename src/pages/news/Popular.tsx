@@ -24,18 +24,11 @@ type NewsArticleProps = {
 
 export default function Popular() {
   const loaderData: any = useLoaderData();
-  const [articles, setArticles] = useState<NewsArticleProps[]>([]);
   const [displayArticles, setDisplayArticles] = useState(10);
 
   useEffect(() => {
     scrollToTop();
   }, []);
-
-  // useEffect(() => {
-  //   if (loaderData.articles) {
-  //     setArticles(loaderData.articles);
-  //   }
-  // }, [loaderData.articles]);
 
   useLoadMore(displayArticles, setDisplayArticles);
 

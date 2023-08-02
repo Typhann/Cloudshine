@@ -1,15 +1,13 @@
 import { useState, useEffect, useContext } from "react";
-import { useDarkMode, getNewsHeadlines } from "../utils";
-import { useSearchParams } from "react-router-dom";
-import { render } from "react-dom";
 import { nanoid } from "nanoid";
 import Skeleton from "./Skeleton";
 import DarkModeContext from "../DarkModeContext";
+import { NewsArticleProps } from "../interface/interface";
 
 export default function NewsHeadline() {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const { darkMode, setDarkMode } = useContext(DarkModeContext);
-  const [headlines, setHeadlines] = useState(null);
+  const { darkMode } = useContext(DarkModeContext);
+  const [headlines, setHeadlines] = useState<NewsArticleProps[] | null>(null);
+
   const viewportWidth = window.innerWidth;
   const [displayHeadlines, setDisplayHeadlines] = useState(false);
 
@@ -21,7 +19,6 @@ export default function NewsHeadline() {
       .then((res) => res.json())
       .then((data) => {
         setHeadlines(data.articles);
-        // console.log(data);
       });
   }, []);
 
@@ -39,7 +36,7 @@ export default function NewsHeadline() {
 
   const renderHeadlines =
     headlines &&
-    headlines.map((headline: string) => {
+    headlines.map((headline) => {
       return (
         <a key={nanoid()} href={headline.url} target="_blank">
           <div className="headline">
@@ -60,7 +57,7 @@ export default function NewsHeadline() {
       {displayHeadlines && (
         <>
           <h2 className="trending">Trending 📈</h2>
-          <div className={useDarkMode("news-headlines")}>
+          <div className="news-headlines">
             {headlines ? renderHeadlines : <Skeleton type="headlines" />}
           </div>
         </>

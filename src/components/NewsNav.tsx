@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import { useContext } from "react";
 import { getSearchParam, useDarkMode } from "../utils";
 import { NavLink, useSearchParams } from "react-router-dom";
+import DarkModeContext from "../DarkModeContext";
 
 export default function NewsNav() {
+  const { darkMode } = useContext(DarkModeContext);
+
   const activeStyle = {
     backgroundColor: "#00ACA1",
   };
@@ -11,17 +14,7 @@ export default function NewsNav() {
   };
 
   const [searchParams, setSearchParams] = useSearchParams();
-  getSearchParam(searchParams);
-
-  // const [scrolled, setScrolled] = useState("");
-  // window.addEventListener("scroll", function () {
-  //   if (window.scrollY >= 150) {
-  //     setScrolled("scrolled");
-  //   }
-  //   if (window.scrollY <= 150) {
-  //     setScrolled("");
-  //   }
-  // });
+  const query = searchParams.get("query") ?? "";
 
   return (
     <nav className={useDarkMode("news-nav")}>
@@ -61,14 +54,15 @@ export default function NewsNav() {
       >
         Science
       </NavLink>
-      {searchParams.get("query") && (
+      {query && (
         <NavLink
-          className={useDarkMode("navlink")}
+          // className={useDarkMode("navlink")}
+          className={`${darkMode ? "dark navlink" : "navlink"}`}
           to={`search/${getSearchParam(searchParams)}`}
           style={({ isActive }) => (isActive ? activeStyle : inActive)}
         >
-          {searchParams.get("query").length > 6
-            ? `${searchParams.get("query").slice(0, 6)}..`
+          {query.length > 6
+            ? `${query.slice(0, 6)}..`
             : searchParams.get("query")}
         </NavLink>
       )}

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import DarkModeContext from "../DarkModeContext";
 import darkModeImg from "../../public/icons/darkMode.png";
 import lightModeImg from "../../public/icons/lightMode.png";
@@ -9,13 +9,13 @@ const DarkModeToggle = () => {
 
   const toggleDarkMode = () => {
     setDarkMode((prevMode) => !prevMode);
-    console.log(darkMode);
+    // console.log(darkMode);
   };
 
   if (darkMode) {
-    document.body.style = "background: rgb(45, 45, 45);";
+    document.body.setAttribute("style", "background: rgb(45, 45, 45);");
   } else {
-    document.body.style = "background: white;";
+    document.body.setAttribute("style", "background: white;");
   }
 
   return (

@@ -24,7 +24,6 @@ type NewsArticleProps = {
 
 export default function Science() {
   const loaderData: any = useLoaderData();
-  // const [articles, setArticles] = useState<NewsArticleProps[]>([]);
   const [displayArticles, setDisplayArticles] = useState(10);
 
   useEffect(() => {

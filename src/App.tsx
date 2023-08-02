@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-import ReactDOM from "react-dom/client";
 import {
   RouterProvider,
   createBrowserRouter,
@@ -14,7 +12,6 @@ import Business from "./pages/news/Business";
 import Tech from "./pages/news/Tech";
 import Science from "./pages/news/Science";
 import Search from "./pages/news/SearchPage";
-import { useSearchParams, useParams } from "react-router-dom";
 import { loader as popularLoader } from "./pages/news/Popular";
 import { loader as sportsLoader } from "./pages/news/Sports";
 import { loader as businessLoader } from "./pages/news/Business";
@@ -22,8 +19,6 @@ import { loader as techLoader } from "./pages/news/Tech";
 import { loader as scienceLoader } from "./pages/news/Science";
 import { loader as queryLoader } from "./pages/news/SearchPage";
 import Error from "./components/Error";
-
-// TODO
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -69,8 +64,6 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  // const [searchParams, setSearchParams] = useSearchParams();
-  // console.log(searchParams);
   return <RouterProvider router={router} />;
 }
 

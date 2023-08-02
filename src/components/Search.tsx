@@ -1,31 +1,25 @@
-import React, { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import searchImgDark from "../../public/icons/search-dark.png";
 import searchImgLight from "../../public/icons/search-light.png";
 import DarkModeContext from "../DarkModeContext";
-import { useDarkMode, updateURL, getSearchParam } from "../utils";
-import { useSearchParams } from "react-router-dom";
+import { useDarkMode } from "../utils";
+import { SearchProps } from "../interface/interface";
 
-export default function Search(props) {
-  // const [placeholder, setPlaceholder] = useState("Search");
+export default function Search(props: SearchProps) {
   const [inputValue, setInputValue] = useState("");
-  const [searchParams, setSearchParams] = useSearchParams();
-  const { darkMode, setDarkMode } = useContext(DarkModeContext);
+  const { darkMode } = useContext(DarkModeContext);
 
   const searchImg = darkMode ? searchImgLight : searchImgDark;
 
-  const handleKeyDown = (event) => {
-    if (event.key === "Enter") {
-      handleSubmit(event);
-    }
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // console.log(inputValue);
 
     if (inputValue.length > 0) {
-      // updateURL(searchParams, "query", inputValue);
-      const urlSearchParams = new URLSearchParams(searchParams);
+      const urlSearchParams = new URLSearchParams(window.location.search);
 
       if (urlSearchParams.has("query")) {
         urlSearchParams.delete("query");
@@ -39,29 +33,18 @@ export default function Search(props) {
     setInputValue("");
   };
 
-  // function genNewSearchParamString(key, value) {
-  //   const sp = new URLSearchParams(searchParams);
-  //   if (value === null) {
-  //     sp.delete(key);
-  //   } else {
-  //     sp.set(key, value);
-  //   }
-  //   return `?${sp.toString()}`;
-  // }
-
   return (
-    <form>
-      <img src={searchImg} alt="search" />
+    <form onSubmit={handleSubmit}>
+      <img src={searchImg} alt="search" width="15px" height="15px" />
       <input
         className={useDarkMode("search")}
         type="text"
         placeholder={props.placeholder}
         onFocus={props.handleFocus}
         onBlur={props.handleBlur}
-        onChange={(e) => setInputValue(e.target.value)}
+        onChange={handleInputChange}
         value={inputValue}
-        onKeyDown={handleKeyDown}
-      ></input>
+      />
     </form>
   );
 }

@@ -31,7 +31,6 @@ type NewsArticleProps = {
 
 export default function Query() {
   const loaderData: any = useLoaderData();
-  // const [articles, setArticles] = useState<NewsArticleProps[]>([]);
   const [displayArticles, setDisplayArticles] = useState(10);
   const queryParams = new URLSearchParams(window.location.search);
   const query = queryParams.get("query");
@@ -62,7 +61,6 @@ export default function Query() {
           }
         </Await>
       </Suspense>
-      {/* <h1>QUERY</h1> */}
     </>
   );
 }

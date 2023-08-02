@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import WeatherCard from "./components/WeatherCard";
 import { WeatherCardData } from "./interface/interface";
 import { useDarkMode } from "./utils";

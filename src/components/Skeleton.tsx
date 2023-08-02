@@ -1,12 +1,24 @@
-import React from "react";
-import { useDarkMode } from "../utils";
+import { useContext } from "react";
+import DarkModeContext from "../DarkModeContext";
 
-export default function Skeleton(props) {
+type skeletonProps = {
+  type: string;
+};
+
+export default function Skeleton(props: skeletonProps) {
+  const { darkMode } = useContext(DarkModeContext);
   let skeleton = null;
   if (props.type === "articles") {
     skeleton = (
       <div className="articles-container">
-        <div className={useDarkMode("skeleton-article-container")}>
+        {/* <div className={useDarkMode("skeleton-article-container")}> */}
+        <div
+          className={
+            darkMode
+              ? "dark skeleton-article-container"
+              : "skeleton-article-container"
+          }
+        >
           <div className="skeleton-img"></div>
           <div className="skeleton-headline"></div>
           <div className="skeleton-headline2"></div>
@@ -20,7 +32,13 @@ export default function Skeleton(props) {
           <div className="skeleton-text"></div>
           <div className="skeleton-link"></div>
         </div>
-        <div className={useDarkMode("skeleton-article-container")}>
+        <div
+          className={
+            darkMode
+              ? "dark skeleton-article-container"
+              : "skeleton-article-container"
+          }
+        >
           <div className="skeleton-img"></div>
           <div className="skeleton-headline"></div>
           <div className="skeleton-name-date-container">
@@ -46,7 +64,13 @@ export default function Skeleton(props) {
   } else if (props.type === "weather") {
     skeleton = (
       <>
-        <div className={useDarkMode("skeleton-weather-card-container")}>
+        <div
+          className={
+            darkMode
+              ? "dark skeleton-weather-card-container"
+              : "skeleton-weather-card-container"
+          }
+        >
           <div className="card-skeleton-info"></div>
           <div className="card-row">
             <div className="temperature-skeleton"></div>
@@ -54,7 +78,13 @@ export default function Skeleton(props) {
           </div>
           <div className="card-skeleton-info"></div>
         </div>
-        <div className={useDarkMode("skeleton-weather-card-container")}>
+        <div
+          className={
+            darkMode
+              ? "dark skeleton-weather-card-container"
+              : "skeleton-weather-card-container"
+          }
+        >
           <div className="card-skeleton-info"></div>
           <div className="card-row">
             <div className="temperature-skeleton"></div>
@@ -62,7 +92,13 @@ export default function Skeleton(props) {
           </div>
           <div className="card-skeleton-info"></div>
         </div>
-        <div className={useDarkMode("skeleton-weather-card-container")}>
+        <div
+          className={
+            darkMode
+              ? "dark skeleton-weather-card-container"
+              : "skeleton-weather-card-container"
+          }
+        >
           <div className="card-skeleton-info"></div>
           <div className="card-row">
             <div className="temperature-skeleton"></div>
@@ -70,7 +106,13 @@ export default function Skeleton(props) {
           </div>
           <div className="card-skeleton-info"></div>
         </div>
-        <div className={useDarkMode("skeleton-weather-card-container")}>
+        <div
+          className={
+            darkMode
+              ? "dark skeleton-weather-card-container"
+              : "skeleton-weather-card-container"
+          }
+        >
           <div className="card-skeleton-info"></div>
           <div className="card-row">
             <div className="temperature-skeleton"></div>
@@ -78,7 +120,13 @@ export default function Skeleton(props) {
           </div>
           <div className="card-skeleton-info"></div>
         </div>
-        <div className={useDarkMode("skeleton-weather-card-container")}>
+        <div
+          className={
+            darkMode
+              ? "dark skeleton-weather-card-container"
+              : "skeleton-weather-card-container"
+          }
+        >
           <div className="card-skeleton-info"></div>
           <div className="card-row">
             <div className="temperature-skeleton"></div>

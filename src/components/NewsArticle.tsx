@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import { useSearchParams } from "react-router-dom";
 import DarkModeContext from "../DarkModeContext";
 
 type NewsArticleProps = {
@@ -10,12 +9,10 @@ type NewsArticleProps = {
   description: string;
   urlToImage: string;
   url: string;
-  // isEven: string;
 };
 
 export default function NewsArticle(props: NewsArticleProps) {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const { darkMode, setDarkMode } = useContext(DarkModeContext);
+  const { darkMode } = useContext(DarkModeContext);
   const img = props.urlToImage
     ? props.urlToImage
     : "https://images.pexels.com/photos/1369476/pexels-photo-1369476.jpeg?auto=compress&cs=tinysrgb&w=1600";
@@ -24,11 +21,9 @@ export default function NewsArticle(props: NewsArticleProps) {
     ? "../../public/icons/new-window-light.png"
     : "../../public/icons/new-window-dark.png";
 
-  // const isEven = props.isEven ? "even" : "odd";
   return (
     <>
       <a target="_blank" href={props.url}>
-        {/* <article className={`news-card ${isEven}`}> */}
         <article className={`news-card`}>
           <img src={img} alt={props.title} loading="lazy" />
           <h2>{props.title}</h2>
