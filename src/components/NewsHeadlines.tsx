@@ -11,14 +11,34 @@ export default function NewsHeadline() {
   const viewportWidth = window.innerWidth;
   const [displayHeadlines, setDisplayHeadlines] = useState(false);
 
+  // useEffect(() => {
+  //   const apiKey = import.meta.env.VITE_REACT_NEWS_API_KEY;
+  //   fetch(`https://api.newscatcherapi.com/v2/latest_headlines`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setHeadlines(data.articles);
+  //     });
+  // }, []);
+
   useEffect(() => {
-    const apiKey = "0ccb8a4744e14aa5bd0ac95652d3aac0";
-    fetch(
-      `https://newsapi.org/v2/everything?sortBy=popularity&pageSize=5&q=news&apiKey=${apiKey}`
-    )
-      .then((res) => res.json())
+    const apiKey = import.meta.env.VITE_REACT_NEWS_API_KEY;
+
+    fetch("https://api.newscatcherapi.com/v2/latest_headlines", {
+      headers: {
+        "x-api-key": apiKey,
+      },
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return res.json();
+      })
       .then((data) => {
         setHeadlines(data.articles);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
       });
   }, []);
 

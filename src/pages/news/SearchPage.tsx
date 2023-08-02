@@ -15,8 +15,6 @@ export function loader() {
   if (query !== null) {
     return defer({ articles: getNewsArticles(query) });
   }
-
-  // Handle the case when 'query' is null, for example, return an empty result or handle the error.
   return defer({ articles: [] });
 }
 
