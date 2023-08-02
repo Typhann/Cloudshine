@@ -11,7 +11,8 @@ export function useDarkMode(className: string) {
 }
 
 export async function getNewsArticles(category: string) {
-  const proxyUrl = "https://corsproxy.io/?";
+  const proxyUrl =
+    "https://corsproxy.io/?" + encodeURIComponent("https://api.domain.com/...");
   const apiKey = import.meta.env.VITE_REACT_NEWS_API_KEY;
   const url = `${proxyUrl}https://newsapi.org/v2/everything?q=${category}&sortBy=publishedAt&pageSize=100&language=en&apiKey=${apiKey}`;
 
