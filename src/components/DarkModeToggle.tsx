@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import DarkModeContext from "../DarkModeContext";
-import darkModeImg from "../../public/icons/darkMode.png";
-import lightModeImg from "../../public/icons/lightMode.png";
+import darkModeImg from "../../src/icons/darkMode.png";
+import lightModeImg from "../../src/icons/lightMode.png";
 
 const DarkModeToggle = () => {
   const { darkMode, setDarkMode } = useContext(DarkModeContext);

@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
-import searchImgDark from "../../public/icons/search-dark.png";
-import searchImgLight from "../../public/icons/search-light.png";
+import searchImgDark from "../../src/icons/search-dark.png";
+import searchImgLight from "../../src/icons/search-light.png";
 import DarkModeContext from "../DarkModeContext";
 import { useDarkMode } from "../utils";
 import { SearchProps } from "../interface/interface";

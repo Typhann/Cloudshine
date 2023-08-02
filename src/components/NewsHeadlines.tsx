@@ -31,8 +31,8 @@ export default function NewsHeadline() {
   }, [viewportWidth]);
 
   const windowIcon = darkMode
-    ? "../../public/icons/new-window-light.png"
-    : "../../public/icons/new-window-dark.png";
+    ? "../../src/icons/new-window-light.png"
+    : "../../src/icons/new-window-dark.png";
 
   const renderHeadlines =
     headlines &&

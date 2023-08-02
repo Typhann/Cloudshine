@@ -18,8 +18,8 @@ export default function NewsArticle(props: NewsArticleProps) {
     : "https://images.pexels.com/photos/1369476/pexels-photo-1369476.jpeg?auto=compress&cs=tinysrgb&w=1600";
 
   const windowIcon = darkMode
-    ? "../../public/icons/new-window-light.png"
-    : "../../public/icons/new-window-dark.png";
+    ? "../../src/icons/new-window-light.png"
+    : "../../src/icons/new-window-dark.png";
 
   return (
     <>
