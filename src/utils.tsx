@@ -13,7 +13,7 @@ export function useDarkMode(className: string) {
 export async function getNewsArticles(category: string) {
   const apiKey = import.meta.env.VITE_REACT_NEWS_API_KEY;
   // const url = `https://newsapi.org/v2/everything?q=${category}&sortBy=publishedAt&pageSize=100&language=en&apiKey=${apiKey}`;
-  const url = `https://api.newscatcherapi.com/v2/search?q=Apple`;
+  const url = `https://api.newscatcherapi.com/v2/search?q=${category}`;
 
   // const res = await fetch(url);
   const res = await fetch(url, {
@@ -77,7 +77,7 @@ export function useLoadMore(
     window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [articles]);
+  }, [articles, setDisplayArticles]);
 }
 
 export function scrollToTop() {
