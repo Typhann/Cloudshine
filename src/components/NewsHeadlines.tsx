@@ -38,7 +38,7 @@ export default function NewsHeadline() {
     headlines &&
     headlines.map((headline) => {
       return (
-        <a key={nanoid()} href={headline.url} target="_blank">
+        <a key={nanoid()} href={headline.link} target="_blank">
           <div className="headline">
             <h2>{headline.title}</h2>
             <img

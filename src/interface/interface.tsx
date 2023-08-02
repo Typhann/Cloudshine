@@ -9,13 +9,14 @@ export interface WeatherCardData {
 }
 
 export interface NewsArticleProps {
-  id: number;
+  _id: number;
   title: string;
-  author: string;
-  publishedAt: string;
-  description: string;
-  urlToImage: string;
-  url: string;
+  author?: string;
+  clean_url: string;
+  published_date: string;
+  summary: string;
+  media: string;
+  link: string;
 }
 
 export interface RouteError {

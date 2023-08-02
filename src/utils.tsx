@@ -42,13 +42,14 @@ export function renderArticles(articles: NewsArticleProps[]) {
           return (
             <NewsArticle
               key={nanoid()}
-              id={article.id}
+              _id={article._id}
               title={article.title}
-              author={article.author}
-              publishedAt={article.publishedAt}
-              description={article.description}
-              urlToImage={article.urlToImage}
-              url={article.url}
+              author={article.author && article.author}
+              clean_url={article.clean_url && article.clean_url}
+              published_date={article.published_date}
+              summary={article.summary}
+              media={article.media}
+              link={article.link}
             />
           );
         })}

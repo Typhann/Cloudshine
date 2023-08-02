@@ -7,20 +7,11 @@ import {
 } from "../../utils";
 import { useLoaderData, Await, defer } from "react-router-dom";
 import Skeleton from "../../components/Skeleton";
+import { NewsArticleProps } from "../../interface/interface";
 
 export function loader() {
   return defer({ articles: getNewsArticles("science") });
 }
-
-type NewsArticleProps = {
-  id: number;
-  title: string;
-  author: string;
-  publishedAt: string;
-  description: string;
-  urlToImage: string;
-  url: string;
-};
 
 export default function Science() {
   const loaderData: any = useLoaderData();

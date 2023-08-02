@@ -7,6 +7,7 @@ import {
 } from "../../utils";
 import { useLoaderData, Await, defer } from "react-router-dom";
 import Skeleton from "../../components/Skeleton";
+import { NewsArticleProps } from "../../interface/interface";
 
 export function loader() {
   const queryParams = new URLSearchParams(window.location.search);
@@ -18,16 +19,6 @@ export function loader() {
   // Handle the case when 'query' is null, for example, return an empty result or handle the error.
   return defer({ articles: [] });
 }
-
-type NewsArticleProps = {
-  id: number;
-  title: string;
-  author: string;
-  publishedAt: string;
-  description: string;
-  urlToImage: string;
-  url: string;
-};
 
 export default function Query() {
   const loaderData: any = useLoaderData();

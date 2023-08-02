@@ -1,20 +1,11 @@
 import { useContext } from "react";
 import DarkModeContext from "../DarkModeContext";
-
-type NewsArticleProps = {
-  id: number;
-  title: string;
-  author: string;
-  publishedAt: string;
-  description: string;
-  urlToImage: string;
-  url: string;
-};
+import { NewsArticleProps } from "../interface/interface";
 
 export default function NewsArticle(props: NewsArticleProps) {
   const { darkMode } = useContext(DarkModeContext);
-  const img = props.urlToImage
-    ? props.urlToImage
+  const img = props.media
+    ? props.media
     : "https://images.pexels.com/photos/1369476/pexels-photo-1369476.jpeg?auto=compress&cs=tinysrgb&w=1600";
 
   const windowIcon = darkMode
@@ -23,16 +14,16 @@ export default function NewsArticle(props: NewsArticleProps) {
 
   return (
     <>
-      <a target="_blank" href={props.url}>
+      <a target="_blank" href={props.link}>
         <article className={`news-card`}>
           <img src={img} alt={props.title} loading="lazy" />
           <h2>{props.title}</h2>
           <div className="space-between">
-            <h3>{props.author}</h3>
-            <h3>{props.publishedAt.slice(0, 10)}</h3>
+            <h3>{props.author || props.clean_url}</h3>
+            <h3>{props.published_date.slice(0, 10)}</h3>
           </div>
           <div>
-            <p>{props.description}</p>
+            <p>{props.summary}</p>
             <span>
               <p className="read-more">
                 Read more
