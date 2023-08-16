@@ -9,7 +9,6 @@ const DarkModeToggle = () => {
 
   const toggleDarkMode = () => {
     setDarkMode((prevMode) => !prevMode);
-    // console.log(darkMode);
   };
 
   if (darkMode) {

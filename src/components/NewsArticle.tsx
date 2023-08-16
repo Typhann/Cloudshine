@@ -16,7 +16,7 @@ export default function NewsArticle(props: NewsArticleProps) {
     <>
       <a target="_blank" href={props.link}>
         <article className={`news-card`}>
-          <img src={img} alt={props.title} loading="lazy" />
+          <img src={img} alt={props.title} loading="lazy" decoding="async" />
           <h2>{props.title}</h2>
           <div className="space-between">
             <h3>{props.author || props.clean_url}</h3>
