@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import DarkModeContext from "../DarkModeContext";
 import { NewsArticleProps } from "../interface/interface";
+import ligthModeImg from "../../src/icons/new-window-light.png";
+import darkModeImg from "../../src/icons/new-window-dark.png";
 
 export default function NewsArticle(props: NewsArticleProps) {
   const { darkMode } = useContext(DarkModeContext);
@@ -8,10 +10,7 @@ export default function NewsArticle(props: NewsArticleProps) {
     ? props.media
     : "https://images.pexels.com/photos/1369476/pexels-photo-1369476.jpeg?auto=compress&cs=tinysrgb&w=1600";
 
-  const windowIcon = darkMode
-    ? "../../src/icons/new-window-light.png"
-    : "../../src/icons/new-window-dark.png";
-
+  const windowIcon = darkMode ? ligthModeImg : darkModeImg;
   return (
     <>
       <a target="_blank" href={props.link}>
