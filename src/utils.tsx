@@ -12,7 +12,7 @@ export function useDarkMode(className: string) {
 
 export async function getNewsArticles(category: string) {
   const apiKey = import.meta.env.VITE_REACT_NEWS_API_KEY;
-  const url = `https://api.newscatcherapi.com/v2/search?q=${category}`;
+  const url = `https://api.newscatcherapi.com/v2/search?q=${category}&lang=en`;
   const localStorageKey = `newsArticles_${category}`;
   const cachedData = localStorage.getItem(localStorageKey);
 
