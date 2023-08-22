@@ -9,7 +9,7 @@ import { useLoaderData, Await, defer } from "react-router-dom";
 import Skeleton from "../../components/Skeleton";
 import { NewsArticleProps } from "../../interface/interface";
 
-export function loader({ request }) {
+export function loader({ request }: { request: any }) {
   console.log("request: ", request);
   const query = new URL(request.url).searchParams.get("query");
 
