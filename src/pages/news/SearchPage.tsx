@@ -10,12 +10,12 @@ import Skeleton from "../../components/Skeleton";
 import { NewsArticleProps } from "../../interface/interface";
 
 export function loader({ request }: { request: any }) {
-  console.log("request: ", request);
+  // console.log("request: ", request);
   const query = new URL(request.url).searchParams.get("query");
 
   if (query !== null) {
     const articles = getNewsArticles(query);
-    console.log("Fetched Articles:", articles);
+    // console.log("Fetched Articles:", articles);
     return defer({ articles });
   }
 

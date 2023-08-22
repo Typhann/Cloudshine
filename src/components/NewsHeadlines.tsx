@@ -13,6 +13,18 @@ export default function NewsHeadline() {
   const viewportWidth = window.innerWidth;
   const [displayHeadlines, setDisplayHeadlines] = useState(false);
 
+  const localStorageKey = "newsArticles_popular";
+
+  const cachedData = localStorage.getItem(localStorageKey);
+
+  useEffect(() => {
+    const { articles } = JSON.parse(cachedData);
+    cachedData && setHeadlines(articles.slice(20, 30));
+  }, [cachedData]);
+
+  console.log("hej");
+  console.log("cached: ", cachedData);
+
   // useEffect(() => {
   //   const apiKey = import.meta.env.VITE_REACT_NEWS_API_KEY;
   //   fetch(`https://api.newscatcherapi.com/v2/latest_headlines`)
@@ -22,30 +34,30 @@ export default function NewsHeadline() {
   //     });
   // }, []);
 
-  useEffect(() => {
-    const apiKey = import.meta.env.VITE_REACT_NEWS_API_KEY;
+  // useEffect(() => {
+  //   const apiKey = import.meta.env.VITE_REACT_NEWS_API_KEY;
 
-    fetch(
-      "https://api.newscatcherapi.com/v2/latest_headlines?lang=en&page_size=10",
-      {
-        headers: {
-          "x-api-key": apiKey,
-        },
-      }
-    )
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return res.json();
-      })
-      .then((data) => {
-        setHeadlines(data.articles);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
+  //   fetch(
+  //     "https://api.newscatcherapi.com/v2/latest_headlines?lang=en&page_size=10",
+  //     {
+  //       headers: {
+  //         "x-api-key": apiKey,
+  //       },
+  //     }
+  //   )
+  //     .then((res) => {
+  //       if (!res.ok) {
+  //         throw new Error("Network response was not ok");
+  //       }
+  //       return res.json();
+  //     })
+  //     .then((data) => {
+  //       setHeadlines(data.articles);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error fetching data:", error);
+  //     });
+  // }, []);
 
   useEffect(() => {
     if (viewportWidth >= 481) {
