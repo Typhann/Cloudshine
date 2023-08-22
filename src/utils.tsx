@@ -12,10 +12,20 @@ export function useDarkMode(className: string) {
 
 export async function getNewsArticles(category: string) {
   const apiKey = import.meta.env.VITE_REACT_NEWS_API_KEY;
-  // const url = `https://newsapi.org/v2/everything?q=${category}&sortBy=publishedAt&pageSize=100&language=en&apiKey=${apiKey}`;
   const url = `https://api.newscatcherapi.com/v2/search?q=${category}`;
+  const localStorageKey = `newsArticles_${category}`;
+  const cachedData = localStorage.getItem(localStorageKey);
 
-  // const res = await fetch(url);
+  if (cachedData) {
+    const { timestamp, articles } = JSON.parse(cachedData);
+    const currentTime = new Date().getTime();
+
+    // Check if the cached data is less than 24 hours old
+    if (currentTime - timestamp < 24 * 60 * 60 * 1000) {
+      return articles;
+    }
+  }
+
   const res = await fetch(url, {
     headers: {
       "x-api-key": apiKey,
@@ -29,8 +39,17 @@ export async function getNewsArticles(category: string) {
       status: res.status,
     };
   }
-  const data: { articles: [] } = await res.json();
-  // console.log("returned data:", data);
+
+  const data = await res.json();
+  const currentTime = new Date().getTime();
+  const cachedDataToStore = {
+    timestamp: currentTime,
+    articles: data.articles,
+  };
+
+  // Store the fetched data in local storage
+  localStorage.setItem(localStorageKey, JSON.stringify(cachedDataToStore));
+
   return data.articles;
 }
 
