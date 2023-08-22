@@ -20,7 +20,7 @@ export default function NewsHeadline() {
   useEffect(() => {
     const { articles } = cachedData ? JSON.parse(cachedData) : "";
     // cachedData && setHeadlines(cachedData.articles.slice(25,35))
-    console.log("articles: ", articles);
+    // console.log("articles: ", articles);
     articles && setHeadlines(articles.slice(35, 45));
   }, [cachedData]);
 
