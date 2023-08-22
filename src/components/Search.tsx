@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import searchImgDark from "../../src/icons/search-dark.png";
 import searchImgLight from "../../src/icons/search-light.png";
 import DarkModeContext from "../DarkModeContext";
@@ -8,6 +9,8 @@ import { SearchProps } from "../interface/interface";
 export default function Search(props: SearchProps) {
   const [inputValue, setInputValue] = useState("");
   const { darkMode } = useContext(DarkModeContext);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const searchImg = darkMode ? searchImgLight : searchImgDark;
 
@@ -19,16 +22,17 @@ export default function Search(props: SearchProps) {
     event.preventDefault();
 
     if (inputValue.length > 0) {
-      const urlSearchParams = new URLSearchParams(window.location.search);
+      const urlSearchParams = new URLSearchParams(location.search);
 
       if (urlSearchParams.has("query")) {
         urlSearchParams.delete("query");
       }
       urlSearchParams.set("query", inputValue);
       const newSearchString = urlSearchParams.toString();
-      const newUrl = `${window.location.pathname}?${newSearchString}`;
-      window.history.pushState({ path: newUrl }, "", newUrl);
-      window.location.href = `/search/?query=${inputValue}`;
+      const newUrl = `/search/?${newSearchString}`;
+
+      navigate(newUrl);
+      console.log(newUrl);
     }
     setInputValue("");
   };
