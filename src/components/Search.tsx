@@ -24,9 +24,6 @@ export default function Search(props: SearchProps) {
     if (inputValue.length > 0) {
       const urlSearchParams = new URLSearchParams(location.search);
 
-      // if (urlSearchParams.has("query")) {
-      //   urlSearchParams.delete("query");
-      // }
       urlSearchParams.set("query", inputValue);
       const newSearchString = urlSearchParams.toString();
       const newUrl = `search/?${newSearchString}`;
