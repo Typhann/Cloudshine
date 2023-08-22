@@ -27,7 +27,7 @@ export default function Search(props: SearchProps) {
       urlSearchParams.set("query", inputValue);
       const newSearchString = urlSearchParams.toString();
       const newUrl = `search/?${newSearchString}`;
-      console.log(newUrl);
+      // console.log(newUrl);
 
       navigate(newUrl);
     }
