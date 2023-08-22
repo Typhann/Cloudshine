@@ -3,6 +3,8 @@ import { nanoid } from "nanoid";
 import Skeleton from "./Skeleton";
 import DarkModeContext from "../DarkModeContext";
 import { NewsArticleProps } from "../interface/interface";
+import ligthModeImg from "../../src/icons/new-window-light.png";
+import darkModeImg from "../../src/icons/new-window-dark.png";
 
 export default function NewsHeadline() {
   const { darkMode } = useContext(DarkModeContext);
@@ -53,9 +55,7 @@ export default function NewsHeadline() {
     }
   }, [viewportWidth]);
 
-  const windowIcon = darkMode
-    ? "../../src/icons/new-window-light.png"
-    : "../../src/icons/new-window-dark.png";
+  const windowIcon = darkMode ? ligthModeImg : darkModeImg;
 
   const renderHeadlines =
     headlines &&
