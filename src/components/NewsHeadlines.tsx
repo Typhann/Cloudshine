@@ -23,11 +23,14 @@ export default function NewsHeadline() {
   useEffect(() => {
     const apiKey = import.meta.env.VITE_REACT_NEWS_API_KEY;
 
-    fetch("https://api.newscatcherapi.com/v2/latest_headlines", {
-      headers: {
-        "x-api-key": apiKey,
-      },
-    })
+    fetch(
+      "https://api.newscatcherapi.com/v2/latest_headlines?lang=en&page_size=10",
+      {
+        headers: {
+          "x-api-key": apiKey,
+        },
+      }
+    )
       .then((res) => {
         if (!res.ok) {
           throw new Error("Network response was not ok");
