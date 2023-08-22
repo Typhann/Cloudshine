@@ -9,12 +9,16 @@ import { useLoaderData, Await, defer } from "react-router-dom";
 import Skeleton from "../../components/Skeleton";
 import { NewsArticleProps } from "../../interface/interface";
 
-export function loader() {
-  const queryParams = new URLSearchParams(window.location.search);
-  const query = queryParams.get("query");
+export function loader({ request }) {
+  console.log("request: ", request);
+  const query = new URL(request.url).searchParams.get("query");
+
   if (query !== null) {
-    return defer({ articles: getNewsArticles(query) });
+    const articles = getNewsArticles(query);
+    console.log("Fetched Articles:", articles);
+    return defer({ articles });
   }
+
   return defer({ articles: [] });
 }
 

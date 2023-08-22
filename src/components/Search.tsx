@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, redirect } from "react-router-dom";
 import searchImgDark from "../../src/icons/search-dark.png";
 import searchImgLight from "../../src/icons/search-light.png";
 import DarkModeContext from "../DarkModeContext";
@@ -24,15 +24,15 @@ export default function Search(props: SearchProps) {
     if (inputValue.length > 0) {
       const urlSearchParams = new URLSearchParams(location.search);
 
-      if (urlSearchParams.has("query")) {
-        urlSearchParams.delete("query");
-      }
+      // if (urlSearchParams.has("query")) {
+      //   urlSearchParams.delete("query");
+      // }
       urlSearchParams.set("query", inputValue);
       const newSearchString = urlSearchParams.toString();
-      const newUrl = `/search/?${newSearchString}`;
+      const newUrl = `search/?${newSearchString}`;
+      console.log(newUrl);
 
       navigate(newUrl);
-      console.log(newUrl);
     }
     setInputValue("");
   };

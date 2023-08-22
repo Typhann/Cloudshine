@@ -30,7 +30,7 @@ export async function getNewsArticles(category: string) {
     };
   }
   const data: { articles: [] } = await res.json();
-  console.log("returned data:", data);
+  // console.log("returned data:", data);
   return data.articles;
 }
 
