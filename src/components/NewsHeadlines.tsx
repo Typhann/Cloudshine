@@ -18,8 +18,8 @@ export default function NewsHeadline() {
   const cachedData = localStorage.getItem(localStorageKey);
 
   useEffect(() => {
-    const { articles } = JSON.parse(cachedData);
-    cachedData && setHeadlines(articles.slice(20, 30));
+    const { articles } = cachedData !== null ? JSON.parse(cachedData) : null;
+    cachedData && setHeadlines(articles.slice(35, 45));
   }, []);
 
   useEffect(() => {
