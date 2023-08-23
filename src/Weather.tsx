@@ -6,27 +6,45 @@ import Skeleton from "./components/Skeleton";
 
 export default function Weather() {
   const [weatherData, setWeatherData] = useState<WeatherCardData[] | null>();
-  const [location, setLocation] = useState({ longitude: "", latitude: "" });
+  const [location, setLocation] = useState({
+    longitude: "",
+    latitude: "",
+  });
   const [city, setCity] = useState("");
   const WEATHERMAP_API = "https://api.openweathermap.org/data/2.5/forecast";
   const WEATHERMAP_API_KEY = import.meta.env.VITE_REACT_WEATHER_API_KEY;
   const GEOAPIFY_API = "https://api.geoapify.com/v1/ipinfo?&apiKey=";
   const GEOAPIFY_API_KEY = import.meta.env.VITE_REACT_LOCATION_API_KEY;
-  const WEATHER_URL = `${WEATHERMAP_API}?lat=${location.latitude}&lon=${location.longitude}&appid=${WEATHERMAP_API_KEY}`;
   const LOCATION_URL = GEOAPIFY_API + GEOAPIFY_API_KEY;
+  const barcelona_longitude = "2.154007";
+  const barcelona_latitude = "41.390205";
+  let WEATHER_URL = "";
+
+  if (location.longitude.length < 1) {
+    WEATHER_URL = `${WEATHERMAP_API}?lat=${barcelona_latitude}&lon=${barcelona_longitude}&appid=${WEATHERMAP_API_KEY}`;
+  } else {
+    WEATHER_URL = `${WEATHERMAP_API}?lat=${location.latitude}&lon=${location.longitude}&appid=${WEATHERMAP_API_KEY}`;
+  }
 
   useEffect(() => {
-    fetch(LOCATION_URL)
-      .then((res) => res.json())
-      .then((data) =>
-        setLocation({
-          longitude: data.location.longitude,
-          latitude: data.location.latitude,
-        })
-      );
-  }, []);
+    const cachedLatitude = localStorage.getItem("latitude");
+    const cachedLongitude = localStorage.getItem("longitude");
 
-  console.log(location);
+    if (cachedLatitude && cachedLongitude) {
+      setLocation({ latitude: cachedLatitude, longitude: cachedLongitude });
+    } else {
+      fetch(LOCATION_URL)
+        .then((res) => res.json())
+        .then((data) => {
+          localStorage.setItem("latitude", data.location.latitude);
+          localStorage.setItem("longitude", data.location.longitude);
+          setLocation({
+            latitude: data.location.latitude,
+            longitude: data.location.longitude,
+          });
+        });
+    }
+  }, []);
 
   useEffect(() => {
     fetch(WEATHER_URL)
@@ -72,7 +90,7 @@ export default function Weather() {
         ]);
       })
       .catch((error) => console.log(error));
-  }, [location]);
+  }, []);
 
   function kelvinToCelcius(num: number) {
     return num - 273.15;
@@ -102,7 +120,7 @@ export default function Weather() {
 
   return (
     <div className={useDarkMode("weather-section")}>
-      <h2 className="section-header">5 day forecast for {city.slice(0, 8)}</h2>
+      <h2 className="section-header">5 day forecast for {city.slice(0, 16)}</h2>
       <section className="weather-container">
         {weatherData ? (
           weatherData.map((item) => (
