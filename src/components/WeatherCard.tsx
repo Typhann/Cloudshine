@@ -15,7 +15,7 @@ export default function WeatherCard(props: Props) {
         <h2 className="temperature">{props.temperature}</h2>
         <img
           className="card-img"
-          src={`../weather/${props.img}.png`}
+          src={`../weather/${props.img}.webp`}
           alt={props.description}
         />
       </div>

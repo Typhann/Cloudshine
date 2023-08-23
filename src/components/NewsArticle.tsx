@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import DarkModeContext from "../DarkModeContext";
 import { NewsArticleProps } from "../interface/interface";
-import ligthModeImg from "../../src/icons/new-window-light.png";
-import darkModeImg from "../../src/icons/new-window-dark.png";
+import ligthModeImg from "../../src/icons/new-window-light.webp";
+import darkModeImg from "../../src/icons/new-window-dark.webp";
 
 export default function NewsArticle(props: NewsArticleProps) {
   const { darkMode } = useContext(DarkModeContext);
