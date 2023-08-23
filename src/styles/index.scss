@@ -112,6 +112,10 @@ p {
           font-size: 2rem;
           // font-weight: 600;
         }
+        > .card-img {
+          height: 30px;
+          width: 30px;
+        }
       }
     }
     > .dark {
