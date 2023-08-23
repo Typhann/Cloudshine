@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { useNavigate, useLocation, redirect } from "react-router-dom";
-import searchImgDark from "../../src/icons/search-dark.png";
-import searchImgLight from "../../src/icons/search-light.png";
+import searchImgDark from "../../src/icons/search-dark.webp";
+import searchImgLight from "../../src/icons/search-light.webp";
 import DarkModeContext from "../DarkModeContext";
 import { useDarkMode } from "../utils";
 import { SearchProps } from "../interface/interface";
