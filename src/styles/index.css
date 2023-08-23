@@ -129,6 +129,10 @@ p {
 .weather-section .weather-container > .weather-card-container > .card-row > .temperature {
   font-size: 2rem;
 }
+.weather-section .weather-container > .weather-card-container > .card-row > .card-img {
+  height: 30px;
+  width: 30px;
+}
 .weather-section .weather-container > .dark {
   background-color: rgb(45, 45, 45);
   background-image: linear-gradient(rgb(45, 45, 45), rgb(45, 45, 45)), linear-gradient(90deg, #4dfecc, #bd53ee, #fcb045);
