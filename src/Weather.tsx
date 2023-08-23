@@ -6,15 +6,30 @@ import Skeleton from "./components/Skeleton";
 
 export default function Weather() {
   const [weatherData, setWeatherData] = useState<WeatherCardData[] | null>();
-  const latitude = 41.390205;
-  const longitude = 2.154007;
-  const API = "https://api.openweathermap.org/data/2.5/forecast";
-  const apiKey = import.meta.env.VITE_REACT_WEATHER_API_KEY;
-  const url = `${API}?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+  const [location, setLocation] = useState({ longitude: "", latitude: "" });
   const [city, setCity] = useState("");
+  const WEATHERMAP_API = "https://api.openweathermap.org/data/2.5/forecast";
+  const WEATHERMAP_API_KEY = import.meta.env.VITE_REACT_WEATHER_API_KEY;
+  const GEOAPIFY_API = "https://api.geoapify.com/v1/ipinfo?&apiKey=";
+  const GEOAPIFY_API_KEY = import.meta.env.VITE_REACT_LOCATION_API_KEY;
+  const WEATHER_URL = `${WEATHERMAP_API}?lat=${location.latitude}&lon=${location.longitude}&appid=${WEATHERMAP_API_KEY}`;
+  const LOCATION_URL = GEOAPIFY_API + GEOAPIFY_API_KEY;
 
   useEffect(() => {
-    fetch(url)
+    fetch(LOCATION_URL)
+      .then((res) => res.json())
+      .then((data) =>
+        setLocation({
+          longitude: data.location.longitude,
+          latitude: data.location.latitude,
+        })
+      );
+  }, []);
+
+  console.log(location);
+
+  useEffect(() => {
+    fetch(WEATHER_URL)
       .then((res) => res.json())
       .then((data) => {
         setCity(data.city.name);
@@ -57,7 +72,7 @@ export default function Weather() {
         ]);
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [location]);
 
   function kelvinToCelcius(num: number) {
     return num - 273.15;
@@ -87,7 +102,7 @@ export default function Weather() {
 
   return (
     <div className={useDarkMode("weather-section")}>
-      <h2 className="section-header">5 day forecast for {city}</h2>
+      <h2 className="section-header">5 day forecast for {city.slice(0, 8)}</h2>
       <section className="weather-container">
         {weatherData ? (
           weatherData.map((item) => (
