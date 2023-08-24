@@ -6,7 +6,7 @@ import NewsNav from "./NewsNav";
 
 export default function Header() {
   const [placeholder, setPlaceholder] = useState("Search");
-
+  // console.log("rendered")
   const viewportWidth = window.innerWidth;
   const [newsNavHeader, setNewsNavHeader] = useState(false);
   const [displayLogo, setDisplayLogo] = useState(true);
@@ -32,7 +32,7 @@ export default function Header() {
       setNewsNavHeader(true);
     }
 
-    if (viewportWidth <= 480) {
+    if (viewportWidth <= 580) {
       setDisplayLogo(true);
     }
   };
