@@ -234,6 +234,8 @@ p {
 
 .news-nav {
   background-color: white;
+  position: sticky;
+  top: 48px;
   top: 155px;
   align-self: flex-start;
   z-index: 1;
