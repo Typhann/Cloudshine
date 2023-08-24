@@ -101,7 +101,10 @@ export function useLoadMore(
 }
 
 export function scrollToTop() {
-  window.scrollTo(0, 200);
+  const scrollY = window.scrollY || document.documentElement.scrollTop;
+  if (scrollY > 200) {
+    window.scrollTo(0, 200);
+  }
 }
 
 export function updateURL(searchParams: string, key: string, value: string) {
