@@ -146,6 +146,14 @@ p {
   color: white;
 }
 
+.news-wrapper > .scrolled {
+  position: fixed;
+  top: 0;
+  margin-left: 450px;
+  margin-top: 25px;
+  align-self: center;
+  border: 2px solid black;
+}
 .news-wrapper .news-container {
   display: flex;
   justify-content: center;
@@ -226,6 +234,7 @@ p {
 
 .news-nav {
   background-color: white;
+  top: 155px;
   align-self: flex-start;
   z-index: 1;
 }
@@ -417,5 +426,10 @@ p {
   }
   .news-container > .articles-container > a .news-card {
     width: 100% !important;
+  }
+  .news-nav {
+    position: sticky;
+    top: 48px;
+    width: 100%;
   }
 }/*# sourceMappingURL=index.css.map */
