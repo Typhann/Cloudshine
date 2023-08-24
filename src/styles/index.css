@@ -234,6 +234,8 @@ p {
 
 .news-nav {
   background-color: white;
+  margin-left: -5px;
+  width: 105%;
   top: 155px;
   align-self: flex-start;
   z-index: 1;
