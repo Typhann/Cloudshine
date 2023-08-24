@@ -101,8 +101,14 @@ export function useLoadMore(
 
 export function scrollToTop() {
   const scrollY = window.scrollY || document.documentElement.scrollTop;
-  if (window.innerWidth <= 580 && scrollY > 100) {
-    window.scrollTo(0, 80);
+  const screenHeight = window.innerHeight;
+  const mobileThreshold = screenHeight * 0.75;
+  const mobileScrollPosition = screenHeight * 0.1;
+
+  if (window.innerWidth <= 580) {
+    if (scrollY > mobileThreshold) {
+      window.scrollTo(0, mobileScrollPosition);
+    }
   } else if (scrollY > 165) {
     window.scrollTo(0, 165);
   }
