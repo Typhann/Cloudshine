@@ -1,6 +1,10 @@
 @import "./variablemixin";
 @import "./reset";
 
+* {
+  // border: 1px solid gray;
+}
+
 body {
   width: 100%;
 }
@@ -8,6 +12,8 @@ body {
 #root {
   max-width: 1280px;
   margin: 0 auto;
+  // border: 2px solid red;
+  // overflow-x: hidden;
   > * {
     padding: 1rem 3rem 1rem 3rem;
   }
@@ -228,6 +234,7 @@ p {
                 }
               }
             }
+            // margin-bottom: 1rem;
           }
         }
       }
@@ -237,10 +244,8 @@ p {
 
 .news-nav {
   background-color: white;
-  position: sticky;
-  top: 48px;
   // border: 2px solid orange;
-  // margin-left: -5px;
+  // width: 100%;
   // position: sticky;
   top: 155px;
   align-self: flex-start;
@@ -400,6 +405,9 @@ p {
 // TABLET
 
 @media screen and (max-width: 821px) {
+  body {
+    // background-color: rgb(166, 166, 255) !important;
+  }
   .weather-card-container {
     width: 10rem !important;
     height: 7rem !important;
@@ -420,10 +428,6 @@ p {
 @media screen and (max-width: 600px) {
   input:focus {
     width: 175px;
-  }
-  .news-nav {
-    width: 105%;
-    margin-left: -5px;
   }
 }
 
@@ -452,25 +456,24 @@ p {
     // border: 2px solid red;
     // margin-bottom: 0 !important;
   }
-  //   .news-nav {
-  //     position: sticky;
-  //     top: 48px;
-  //     height: 50px;
-  //     width: 100%;
-  //     // border: 2px solid red;
-  //     display: flex;
-  //     // justify-content: flex-start;
-  //     // margin-left: -5px;
-  //     // padding: 0;
-  //     // margin-left: -10px;
-  //     // align-items: center !important;
-  //     // justify-content: center !important;
-  //     // margin-top: 150px;
-  //     // z-index: 999;
-  //     // border: 2px solid red;
-  //   }
-  //   // .articles-container {
-  //   //   width: 100% !important;
-  //   // }
+  .news-nav {
+    position: sticky;
+    top: 48px;
+    height: 50px;
+    width: 100%;
+    // border: 2px solid red;
+    display: flex;
+    // justify-content: flex-start;
+    // margin-left: -5px;
+    // padding: 0;
+    // margin-left: -10px;
+    // align-items: center !important;
+    // justify-content: center !important;
+    // margin-top: 150px;
+    // z-index: 999;
+    // border: 2px solid red;
+  }
+  // .articles-container {
+  //   width: 100% !important;
   // }
 }
