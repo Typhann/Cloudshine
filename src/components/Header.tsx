@@ -36,7 +36,7 @@ export default function Header() {
       setDisplayNewsNav(true);
     }
 
-    if (viewportWidth <= 580) {
+    if (viewportWidth <= 580 && window.scrollY === 0) {
       setDisplayLogo(true);
     }
   };
