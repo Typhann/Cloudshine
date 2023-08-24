@@ -186,7 +186,7 @@ p {
 .news-wrapper .news-container > .articles-container {
   -moz-columns: 2;
        columns: 2;
-  word-break: break-all;
+  word-break: break-word;
   width: 85%;
 }
 .news-wrapper .news-container > .articles-container > a > .news-card {

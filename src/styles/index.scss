@@ -182,9 +182,8 @@ p {
     }
     > .articles-container {
       columns: 2;
-      word-break: break-all;
+      word-break: break-word;
       width: 85%;
-      // border: 2px solid red;
       > a {
         > .news-card {
           box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
