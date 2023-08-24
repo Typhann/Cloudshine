@@ -429,7 +429,7 @@ p {
   }
   .news-nav {
     position: sticky;
-    top: 60px;
+    top: 48px;
     height: 50px;
     width: 100%;
     display: flex;
