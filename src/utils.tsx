@@ -102,8 +102,10 @@ export function useLoadMore(
 
 export function scrollToTop() {
   const scrollY = window.scrollY || document.documentElement.scrollTop;
-  if (scrollY > 200) {
-    window.scrollTo(0, 200);
+  if (window.innerWidth <= 481 && scrollY >= 100) {
+    window.scrollTo(0, 80);
+  } else if (scrollY > 165) {
+    window.scrollTo(0, 165);
   }
 }
 
