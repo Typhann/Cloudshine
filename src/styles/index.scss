@@ -1,11 +1,19 @@
 @import "./variablemixin";
 @import "./reset";
 
+* {
+  // border: 1px solid gray;
+}
+
+body {
+  width: 100%;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   // border: 2px solid red;
-  overflow-x: hidden;
+  // overflow-x: hidden;
   > * {
     padding: 1rem 3rem 1rem 3rem;
   }
@@ -148,6 +156,7 @@ p {
     align-items: flex-start;
     margin-top: 2rem;
     > .trending-headlines {
+      max-width: 100%;
       width: 500px;
       height: 500px;
       position: sticky;
@@ -447,13 +456,14 @@ p {
     // margin-bottom: 0 !important;
   }
   .news-nav {
-    position: sticky;
-    top: 48px;
-    height: 50px;
-    width: 105%;
-    display: flex;
-    justify-content: flex-start;
-    margin-left: -5px;
+    // position: sticky;
+    // top: 48px;
+    // height: 50px;
+    // width: 105%;
+    // border: 2px solid red;
+    // display: flex;
+    // justify-content: flex-start;
+    // margin-left: -5px;
     // padding: 0;
     // margin-left: -10px;
     // align-items: center !important;

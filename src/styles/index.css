@@ -23,10 +23,13 @@ a {
   text-decoration: inherit; /* no underline */
 }
 
+body {
+  width: 100%;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  overflow-x: hidden;
 }
 #root > * {
   padding: 1rem 3rem 1rem 3rem;
@@ -150,6 +153,7 @@ p {
   margin-top: 2rem;
 }
 .news-wrapper .news-container > .trending-headlines {
+  max-width: 100%;
   width: 500px;
   height: 500px;
   position: sticky;
@@ -413,14 +417,5 @@ p {
   }
   .news-container > .articles-container > a .news-card {
     width: 100% !important;
-  }
-  .news-nav {
-    position: sticky;
-    top: 48px;
-    height: 50px;
-    width: 105%;
-    display: flex;
-    justify-content: flex-start;
-    margin-left: -5px;
   }
 }/*# sourceMappingURL=index.css.map */
