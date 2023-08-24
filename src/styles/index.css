@@ -430,7 +430,8 @@ p {
   .news-nav {
     position: sticky;
     top: 60px;
-    height: 60px;
+    height: 50px;
     width: 100%;
+    display: flex;
   }
 }/*# sourceMappingURL=index.css.map */
