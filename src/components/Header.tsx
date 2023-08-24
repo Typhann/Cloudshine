@@ -70,7 +70,7 @@ export default function Header() {
           placeholder={placeholder}
           handleBlur={handleBlur}
         />
-        <DarkModeToggle />
+        {displayLogo && <DarkModeToggle />}
       </div>
     </header>
   );
