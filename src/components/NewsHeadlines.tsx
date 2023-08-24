@@ -15,14 +15,15 @@ export default function NewsHeadline() {
 
   const localStorageKey = "newsArticles_popular";
 
-  const cachedData = localStorage.getItem(localStorageKey);
-
   useEffect(() => {
-    const { articles } = cachedData ? JSON.parse(cachedData) : "";
-    // cachedData && setHeadlines(cachedData.articles.slice(25,35))
-    // console.log("articles: ", articles);
-    articles && setHeadlines(articles.slice(35, 45));
-  }, [cachedData]);
+    setTimeout(function () {
+      const cachedData = localStorage.getItem(localStorageKey);
+      const { articles } = cachedData ? JSON.parse(cachedData) : "";
+
+      console.log("articles: ", articles);
+      articles && setHeadlines(articles.slice(35, 45));
+    }, 500);
+  }, []);
 
   useEffect(() => {
     if (viewportWidth >= 481) {
