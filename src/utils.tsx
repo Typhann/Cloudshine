@@ -47,7 +47,6 @@ export async function getNewsArticles(category: string) {
     articles: data.articles,
   };
 
-  // Store the fetched data in local storage
   localStorage.setItem(localStorageKey, JSON.stringify(cachedDataToStore));
 
   return data.articles;
@@ -102,7 +101,7 @@ export function useLoadMore(
 
 export function scrollToTop() {
   const scrollY = window.scrollY || document.documentElement.scrollTop;
-  if (window.innerWidth <= 481 && scrollY >= 100) {
+  if (window.innerWidth <= 580 && scrollY > 100) {
     window.scrollTo(0, 80);
   } else if (scrollY > 165) {
     window.scrollTo(0, 165);
