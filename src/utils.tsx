@@ -88,8 +88,8 @@ export function useLoadMore(
         document.documentElement.scrollHeight || document.body.scrollHeight;
       const clientHeight =
         document.documentElement.clientHeight || window.innerHeight;
-      const reachedBottom = scrollTop + clientHeight >= scrollHeight;
-      if (reachedBottom) {
+      const eightyPercentScroll = (scrollHeight - clientHeight) * 0.8; // 80% of the scrollable height
+      if (scrollTop >= eightyPercentScroll) {
         setDisplayArticles((prevArticles) => prevArticles + 10);
       }
     }
