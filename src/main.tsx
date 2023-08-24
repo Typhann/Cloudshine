@@ -4,7 +4,7 @@ import App from "./App.tsx";
 import { DarkModeProvider } from "./DarkModeContext.tsx";
 
 //TODO
-// cloudshine logo dissapears when click on searchbox on mobile
+// cloudshine logo dissapears when click on searchbox on mobile in safari
 // weird zoom in happens on mobile on safari when click on searchbox
 // all forms need a name or id attribute
 // horizontal scroll on mobile
