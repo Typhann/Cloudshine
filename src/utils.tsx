@@ -101,7 +101,7 @@ export function useLoadMore(
 }
 
 export function scrollToTop() {
-  window.scrollTo(0, 0);
+  window.scrollTo(0, 200);
 }
 
 export function updateURL(searchParams: string, key: string, value: string) {

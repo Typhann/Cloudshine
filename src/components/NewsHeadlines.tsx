@@ -22,7 +22,7 @@ export default function NewsHeadline() {
 
       console.log("articles: ", articles);
       articles && setHeadlines(articles.slice(35, 45));
-    }, 500);
+    }, 1000);
   }, []);
 
   useEffect(() => {

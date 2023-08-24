@@ -4,9 +4,9 @@ import App from "./App.tsx";
 import { DarkModeProvider } from "./DarkModeContext.tsx";
 
 //TODO
-// cloudshine logo dissapears when click on searchbox on mobile
 // weird zoom in happens on mobile on safari when click on searchbox
-// Trending headlines doesnt appear sometimes until forced state change like dark mode
+// #FIXED -- cloudshine logo dissapears when click on searchbox on mobile
+// #FIXED -- Trending headlines doesnt appear sometimes until forced state change like dark mode
 // #FIXED -- all forms need a name or id attribute
 // #FIXED -- horizontal scroll on mobile
 // #FIXED -- infinite scroll on giannas phone but on mine the trending headlines shows up after
