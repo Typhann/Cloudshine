@@ -35,7 +35,7 @@ export default function Search(props: SearchProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form name="search" onSubmit={handleSubmit}>
       <img src={searchImg} alt="search" width="15px" height="15px" />
       <input
         className={useDarkMode("search")}
