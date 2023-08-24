@@ -234,8 +234,6 @@ p {
 
 .news-nav {
   background-color: white;
-  border: 2px solid orange;
-  width: 105%;
   top: 155px;
   align-self: flex-start;
   z-index: 1;
@@ -415,6 +413,10 @@ p {
   input:focus {
     width: 175px;
   }
+  .news-nav {
+    width: 105%;
+    margin-left: -5px;
+  }
 }
 @media screen and (max-width: 480px) {
   input:focus {
@@ -428,12 +430,5 @@ p {
   }
   .news-container > .articles-container > a .news-card {
     width: 100% !important;
-  }
-  .news-nav {
-    position: sticky;
-    top: 48px;
-    height: 50px;
-    width: 100%;
-    display: flex;
   }
 }/*# sourceMappingURL=index.css.map */

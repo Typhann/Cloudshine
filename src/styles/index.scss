@@ -238,9 +238,8 @@ p {
 
 .news-nav {
   background-color: white;
-  border: 2px solid orange;
+  // border: 2px solid orange;
   // margin-left: -5px;
-  width: 105%;
   // position: sticky;
   top: 155px;
   align-self: flex-start;
@@ -421,6 +420,10 @@ p {
   input:focus {
     width: 175px;
   }
+  .news-nav {
+    width: 105%;
+    margin-left: -5px;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -448,24 +451,25 @@ p {
     // border: 2px solid red;
     // margin-bottom: 0 !important;
   }
-  .news-nav {
-    position: sticky;
-    top: 48px;
-    height: 50px;
-    width: 100%;
-    // border: 2px solid red;
-    display: flex;
-    // justify-content: flex-start;
-    // margin-left: -5px;
-    // padding: 0;
-    // margin-left: -10px;
-    // align-items: center !important;
-    // justify-content: center !important;
-    // margin-top: 150px;
-    // z-index: 999;
-    // border: 2px solid red;
-  }
-  // .articles-container {
-  //   width: 100% !important;
+  //   .news-nav {
+  //     position: sticky;
+  //     top: 48px;
+  //     height: 50px;
+  //     width: 100%;
+  //     // border: 2px solid red;
+  //     display: flex;
+  //     // justify-content: flex-start;
+  //     // margin-left: -5px;
+  //     // padding: 0;
+  //     // margin-left: -10px;
+  //     // align-items: center !important;
+  //     // justify-content: center !important;
+  //     // margin-top: 150px;
+  //     // z-index: 999;
+  //     // border: 2px solid red;
+  //   }
+  //   // .articles-container {
+  //   //   width: 100% !important;
+  //   // }
   // }
 }
