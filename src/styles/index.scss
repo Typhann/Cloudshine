@@ -244,8 +244,7 @@ p {
 
 .news-nav {
   background-color: white;
-  // border: 2px solid orange;
-  // width: 100%;
+  border: 2px solid orange;
   // position: sticky;
   // top: 155px;
   align-self: flex-start;
@@ -430,7 +429,7 @@ p {
     width: 175px;
   }
   .news-nav {
-    width: 105%;
+    width: 110%;
     margin-left: -5px;
   }
 }
@@ -464,9 +463,9 @@ p {
     position: sticky;
     top: 48px;
     height: 50px;
-    width: 100%;
-    // border: 2px solid red;
+    width: 105%;
     display: flex;
+    border: 1px solid gray !important;
     // justify-content: flex-start;
     // margin-left: -5px;
     // padding: 0;

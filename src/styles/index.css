@@ -234,6 +234,7 @@ p {
 
 .news-nav {
   background-color: white;
+  border: 2px solid orange;
   align-self: flex-start;
   z-index: 1;
 }
@@ -413,7 +414,7 @@ p {
     width: 175px;
   }
   .news-nav {
-    width: 105%;
+    width: 110%;
     margin-left: -5px;
   }
 }
@@ -434,7 +435,8 @@ p {
     position: sticky;
     top: 48px;
     height: 50px;
-    width: 100%;
+    width: 105%;
     display: flex;
+    border: 1px solid gray !important;
   }
 }/*# sourceMappingURL=index.css.map */
