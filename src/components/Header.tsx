@@ -10,14 +10,34 @@ export default function Header() {
   const [displayNewsNav, setDisplayNewsNav] = useState(false);
   const [displayLogo, setDisplayLogo] = useState(true);
 
+  console.log("Display logo: ", displayLogo);
+  console.log("Display News Nav: ", displayNewsNav);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", function () {
+  //     if (window.scrollY >= 150 && viewportWidth >= 481) {
+  //       setDisplayNewsNav(true);
+  //     } else {
+  //       setDisplayNewsNav(false);
+  //     }
+  //   });
+  // }, []);
+
   useEffect(() => {
-    window.addEventListener("scroll", function () {
+    const handleScroll = () => {
       if (window.scrollY >= 150 && viewportWidth >= 481) {
         setDisplayNewsNav(true);
       } else {
         setDisplayNewsNav(false);
       }
-    });
+    };
+
+    // Add the event listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const handleFocus = () => {
@@ -25,9 +45,9 @@ export default function Header() {
     if (viewportWidth <= 920) {
       setDisplayNewsNav(false);
     }
-    if (viewportWidth <= 480) {
+    if (viewportWidth <= 580) {
       setDisplayLogo(false);
-      setDisplayNewsNav(false);
+      // setDisplayNewsNav(false);
     }
   };
   const handleBlur = () => {
