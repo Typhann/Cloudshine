@@ -109,8 +109,11 @@ export function scrollToTop() {
     if (scrollY > mobileThreshold) {
       window.scrollTo(0, mobileScrollPosition);
     }
-  } else if (scrollY > 165) {
-    window.scrollTo(0, 165);
+  }
+  if (window.innerWidth > 580) {
+    if (scrollY > 165) {
+      window.scrollTo(0, 165);
+    }
   }
 }
 
