@@ -15,16 +15,19 @@ export default function NewsHeadline() {
   const [displayHeadlines, setDisplayHeadlines] = useState(false);
 
   useEffect(() => {
-    async function fetchNewsArticles() {
+    const delay = 1500; // 1.5 seconds in milliseconds
+
+    // timeout function to get around status 429 (too many requests)
+    const timer = setTimeout(async () => {
       try {
         const articles = await getNewsArticles("trending");
         setHeadlines(articles);
       } catch (error) {
         console.error("Error fetching news articles:", error);
       }
-    }
+    }, delay);
 
-    fetchNewsArticles();
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
@@ -39,7 +42,7 @@ export default function NewsHeadline() {
 
   const renderHeadlines =
     headlines &&
-    headlines.map((headline) => {
+    headlines.slice(0, 8).map((headline) => {
       return (
         <a key={nanoid()} href={headline.link} target="_blank">
           <div className="headline">
