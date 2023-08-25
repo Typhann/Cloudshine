@@ -281,7 +281,8 @@ p {
   box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
     rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
   border-radius: 25px;
-  width: 90%;
+  width: 350px;
+  height: 475px;
   background-color: white;
   margin: 0rem 2rem 2rem 0rem;
   > * {
@@ -403,6 +404,10 @@ p {
   .news-nav {
     width: 110%;
     margin-left: -5px;
+  }
+  .skeleton-article-container {
+    width: 90%;
+    height: 100%;
   }
 }
 
