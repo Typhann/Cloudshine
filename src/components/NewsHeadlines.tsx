@@ -5,6 +5,7 @@ import DarkModeContext from "../DarkModeContext";
 import { NewsArticleProps } from "../interface/interface";
 import ligthModeImg from "../../src/icons/new-window-light.webp";
 import darkModeImg from "../../src/icons/new-window-dark.webp";
+import { getNewsArticles } from "../utils";
 
 export default function NewsHeadline() {
   const { darkMode } = useContext(DarkModeContext);
@@ -13,15 +14,17 @@ export default function NewsHeadline() {
   const viewportWidth = window.innerWidth;
   const [displayHeadlines, setDisplayHeadlines] = useState(false);
 
-  const localStorageKey = "newsArticles_popular";
-
   useEffect(() => {
-    setTimeout(function () {
-      const cachedData = localStorage.getItem(localStorageKey);
-      const { articles } = cachedData ? JSON.parse(cachedData) : "";
+    async function fetchNewsArticles() {
+      try {
+        const articles = await getNewsArticles("trending");
+        setHeadlines(articles);
+      } catch (error) {
+        console.error("Error fetching news articles:", error);
+      }
+    }
 
-      articles && setHeadlines(articles.slice(35, 45));
-    }, 1000);
+    fetchNewsArticles();
   }, []);
 
   useEffect(() => {
@@ -58,7 +61,13 @@ export default function NewsHeadline() {
         <>
           <h2 className="trending">Trending 📈</h2>
           <div className="news-headlines">
-            {headlines ? renderHeadlines : <Skeleton type="headlines" />}
+            {headlines === undefined ? (
+              <h3>Error fetching headlines, try refreshing the page</h3>
+            ) : headlines ? (
+              renderHeadlines
+            ) : (
+              <Skeleton type="headlines" />
+            )}
           </div>
         </>
       )}
