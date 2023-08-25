@@ -20,7 +20,6 @@ export default function NewsHeadline() {
       const cachedData = localStorage.getItem(localStorageKey);
       const { articles } = cachedData ? JSON.parse(cachedData) : "";
 
-      console.log("articles: ", articles);
       articles && setHeadlines(articles.slice(35, 45));
     }, 1000);
   }, []);

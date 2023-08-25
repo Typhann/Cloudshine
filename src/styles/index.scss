@@ -1,10 +1,6 @@
 @import "./variablemixin";
 @import "./reset";
 
-* {
-  // border: 1px solid gray;
-}
-
 body {
   width: 100%;
 }
@@ -12,8 +8,6 @@ body {
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  // border: 2px solid red;
-  // overflow-x: hidden;
   > * {
     padding: 1rem 3rem 1rem 3rem;
   }
@@ -29,18 +23,14 @@ p {
 .section-header {
   font-family: $main-font;
   font-size: $text-size;
-  // text-align: center;
-  // margin-bottom: -5rem;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // padding: 3rem;
   top: 0;
   position: sticky;
-  // border: 1px solid gray;
   z-index: 999;
   font-family: $header-font;
   font-size: $header-size;
@@ -54,13 +44,10 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    // z-index: 100;
-    // border: 2px solid red;
     > img {
       cursor: pointer;
     }
     > form {
-      // border: 2px solid red;
       border-radius: 12px;
       box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
         rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
@@ -73,7 +60,6 @@ p {
         width: 60px;
         font-family: poppins;
         font-size: $text-size;
-        // background-color: white;
         margin-left: 5px;
       }
       > input:focus {
@@ -91,7 +77,6 @@ p {
     margin-bottom: 0.5rem;
   }
   .weather-container {
-    // border: 1px solid rgb(223, 20, 20);
     @include flexCenter(row);
     flex-wrap: wrap;
     font-family: $main-font;
@@ -119,7 +104,6 @@ p {
         width: 100%;
         > .temperature {
           font-size: 2rem;
-          // font-weight: 600;
         }
         > .card-img {
           height: 30px;
@@ -140,8 +124,6 @@ p {
 }
 
 .news-wrapper {
-  // border: 1px solid green;
-  // @include flexCenter(column);
   > .scrolled {
     position: fixed;
     top: 0;
@@ -234,7 +216,6 @@ p {
                 }
               }
             }
-            // margin-bottom: 1rem;
           }
         }
       }
@@ -244,9 +225,6 @@ p {
 
 .news-nav {
   background-color: white;
-  // border: 2px solid orange;
-  // position: sticky;
-  // top: 155px;
   align-self: flex-start;
   z-index: 1;
   > a {
@@ -274,7 +252,6 @@ p {
   border: 2px solid $skeleton;
   margin: 1rem;
   > * {
-    // margin: 1rem;
     padding: 0.25rem;
     animation: skeletonOpacity 2s ease-in-out infinite;
   }
@@ -304,8 +281,7 @@ p {
   box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
     rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
   border-radius: 25px;
-  width: 350px;
-  height: 475px;
+  width: 90%;
   background-color: white;
   margin: 0rem 2rem 2rem 0rem;
   > * {
@@ -372,7 +348,6 @@ p {
   align-items: flex-start;
   justify-content: flex-start;
   width: 100%;
-  // border: 2px solid red;
   > h2,
   pre,
   h3 {
@@ -404,9 +379,6 @@ p {
 // TABLET
 
 @media screen and (max-width: 821px) {
-  body {
-    // background-color: rgb(166, 166, 255) !important;
-  }
   .weather-card-container {
     width: 10rem !important;
     height: 7rem !important;
@@ -440,12 +412,9 @@ p {
   }
   .news-container {
     display: block !important;
-    // margin: 10 auto !important;
-    // align-items: flex-end !important;
 
     > .articles-container {
       width: 100% !important;
-      // border: 2px solid red !important;
       > a {
         .news-card {
           width: 100% !important;
@@ -453,29 +422,12 @@ p {
       }
     }
   }
-  header {
-    // top: 50px !important;
-    // position: fixed !important;
-    // border: 2px solid red;
-    // margin-bottom: 0 !important;
-  }
+
   .news-nav {
     position: sticky;
     top: 48px;
     height: 50px;
     width: 105%;
     display: flex;
-    // justify-content: flex-start;
-    // margin-left: -5px;
-    // padding: 0;
-    // margin-left: -10px;
-    // align-items: center !important;
-    // justify-content: center !important;
-    // margin-top: 150px;
-    // z-index: 999;
-    // border: 2px solid red;
   }
-  // .articles-container {
-  //   width: 100% !important;
-  // }
 }
