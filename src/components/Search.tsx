@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import searchImgDark from "../../src/icons/search-dark.webp";
 import searchImgLight from "../../src/icons/search-light.webp";
 import DarkModeContext from "../DarkModeContext";
-import { useDarkMode } from "../utils";
+import { scrollToTop, useDarkMode } from "../utils";
 import { SearchProps } from "../interface/interface";
 
 export default function Search(props: SearchProps) {
@@ -27,7 +27,7 @@ export default function Search(props: SearchProps) {
       urlSearchParams.set("query", inputValue);
       const newSearchString = urlSearchParams.toString();
       const newUrl = `search/?${newSearchString}`;
-
+      scrollToTop();
       navigate(newUrl);
     }
     setInputValue("");
