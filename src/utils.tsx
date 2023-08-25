@@ -71,6 +71,10 @@ export function renderArticles(articles: NewsArticleProps[]) {
             />
           );
         })}
+      <h3 className="reached-end">
+        You've read all the articles in this category! 🤓 Try exloring a
+        different category and see how many you can finish! 😜
+      </h3>
     </div>
   );
 }
@@ -89,7 +93,9 @@ export function useLoadMore(
         document.documentElement.clientHeight || window.innerHeight;
       const eightyPercentScroll = (scrollHeight - clientHeight) * 0.8; // 80% of the scrollable height
       if (scrollTop >= eightyPercentScroll) {
-        setDisplayArticles((prevArticles) => prevArticles + 10);
+        if (articles < 100) {
+          setDisplayArticles((prevArticles) => prevArticles + 10);
+        }
       }
     }
 

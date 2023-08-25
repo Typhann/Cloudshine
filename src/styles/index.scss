@@ -219,6 +219,11 @@ p {
           }
         }
       }
+      > .reached-end {
+        margin-top: 5rem;
+        // color: red;
+        font-size: $subheader-size;
+      }
     }
   }
 }
