@@ -128,7 +128,7 @@ p {
       position: sticky;
       top: 70px;
       gap: $small;
-      width: 50%;
+      min-width: 350px;
       > h2 {
         font-size: $subheader-size;
       }
@@ -151,7 +151,6 @@ p {
       @include flex(row, flex-start, flex-start);
       flex-wrap: wrap;
       gap: $medium;
-      width: 85%;
       > a {
         @include flex(column, flex-start, space-between);
         width: calc(50% - $medium);

@@ -173,7 +173,7 @@ p {
   position: sticky;
   top: 70px;
   gap: 1rem;
-  width: 50%;
+  min-width: 350px;
 }
 .news-wrapper .news-container > .trending-headlines > h2 {
   font-size: clamp(1.2rem, 2.5vw, 1.6rem);
@@ -196,7 +196,6 @@ p {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 2rem;
-  width: 85%;
 }
 .news-wrapper .news-container > .articles-container > a {
   display: flex;
