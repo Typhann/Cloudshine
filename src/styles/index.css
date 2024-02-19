@@ -204,7 +204,7 @@ p {
   align-items: space-between;
   flex-direction: column;
   width: calc(50% - 2rem);
-  min-width: 300px;
+  min-width: 250px;
   flex-grow: 1;
   box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
   border-radius: 25px;
