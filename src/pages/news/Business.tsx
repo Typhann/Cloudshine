@@ -27,10 +27,11 @@ export default function Business() {
     <>
       <Suspense fallback={<Skeleton type="articles" />}>
         <Await resolve={loaderData.articles}>
-          {(resolvedArticles: NewsArticleProps[]) =>
+          {/* {(resolvedArticles: NewsArticleProps[]) =>
             resolvedArticles &&
             renderArticles(resolvedArticles.slice(0, displayArticles))
-          }
+          } */}
+          <Skeleton type="articles" />
         </Await>
       </Suspense>
     </>

@@ -5,22 +5,12 @@
   list-style: none;
   text-decoration: none;
   font-size: 62.5%;
-  // border: 1px solid rgb(55, 55, 55);
 }
 input {
   all: unset;
 }
-textarea {
-  border: none;
-  // overflow: auto;
-  outline: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  resize: none; /*remove the resize handle on the bottom right*/
-}
 
 a {
-  color: inherit; /* blue colors for links too */
-  text-decoration: inherit; /* no underline */
+  color: inherit;
+  text-decoration: inherit;
 }

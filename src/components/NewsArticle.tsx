@@ -41,23 +41,23 @@ export default function NewsArticle(props: NewsArticleProps) {
           </div>
           <div>
             <p>
-              {props.summary.length > 50
+              {props.summary.length > 250
                 ? props.summary.slice(0, 250) + "..."
                 : props.summary}
             </p>
-            <span>
-              <p className="read-more">
-                Read more
-                <img
-                  src={windowIcon}
-                  alt="Icon for external website"
-                  width="20px"
-                  height="20px"
-                />
-              </p>
-            </span>
           </div>
         </article>
+        <span>
+          <p className="read-more">
+            Read more
+            <img
+              src={windowIcon}
+              alt="Icon for external website"
+              width="20px"
+              height="20px"
+            />
+          </p>
+        </span>
       </a>
     </>
   );
