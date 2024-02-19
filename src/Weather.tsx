@@ -20,11 +20,14 @@ export default function Weather() {
   const barcelona_latitude = "41.390205";
   let WEATHER_URL = "";
 
-  if (location.longitude.length < 1) {
-    WEATHER_URL = `${WEATHERMAP_API}?lat=${barcelona_latitude}&lon=${barcelona_longitude}&appid=${WEATHERMAP_API_KEY}`;
-  } else {
-    WEATHER_URL = `${WEATHERMAP_API}?lat=${location.latitude}&lon=${location.longitude}&appid=${WEATHERMAP_API_KEY}`;
-  }
+  useEffect(() => {
+    if (location.longitude.length < 1) {
+      WEATHER_URL = `${WEATHERMAP_API}?lat=${barcelona_latitude}&lon=${barcelona_longitude}&appid=${WEATHERMAP_API_KEY}`;
+    } else {
+      WEATHER_URL = `${WEATHERMAP_API}?lat=${location.latitude}&lon=${location.longitude}&appid=${WEATHERMAP_API_KEY}`;
+    }
+    console.log(location.longitude.length);
+  }, [location]);
 
   useEffect(() => {
     const cachedLatitude = localStorage.getItem("latitude");
