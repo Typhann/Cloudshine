@@ -40,7 +40,11 @@ export default function NewsArticle(props: NewsArticleProps) {
             <h3>{props.published_date.slice(0, 10)}</h3>
           </div>
           <div>
-            <p>{props.summary}</p>
+            <p>
+              {props.summary.length > 50
+                ? props.summary.slice(0, 250) + "..."
+                : props.summary}
+            </p>
             <span>
               <p className="read-more">
                 Read more
